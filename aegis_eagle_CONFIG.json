@@ -1,0 +1,2702 @@
+{
+  "plan": "- Electrical: Raspberry Pi 5, ESP32, Camera, PIR sensor, Mic, Speaker, LED eyes, 18650 batteries, TP4056 charger, voltage regulator, cooling fan, power switch, WiFi antenna. - Mechanical Structure: Screw holes, wire channels, ventilation, mounting points, removable access panels, base and legs. - Custom 3D Printed Parts: Head (L/R), upper/lower body shells, left/right wings, tail section, battery door, electronics mounting brackets. - AI/Software: Python, OpenCV, TensorFlow Lite for motion/human/face detection, Flask web server, mobile app for streaming and alerts. - Motion: Optional servo motors in wings for movement, head movement mechanism. - Power/Integration: Internal compartments for all components, main electronics (18x11x11 cm), battery (8x5x3 cm), head compartment for camera/LED/mic.",
+  "nodes": [
+    {
+      "id": "raspberry_pi_5",
+      "name": "Main AI Controller",
+      "pins": [
+        "40-pin GPIO",
+        "USB-C Power",
+        "2x HDMI",
+        "2x MIPI CSI/DSI",
+        "PCIe"
+      ],
+      "type": "mcu",
+      "partId": "8c965559-e936-4e31-923a-6f0982a9d959",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Raspberry+Pi+5+4GB&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/6416-03.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "GPIO_HEADER,USB3.0_PORTS,USB2.0_PORTS,USB-C_POWER"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://octopart.com/opatz8j6/a1?t=CDAAs5-XwJzy0H-aeW2BMXke0DhZpNMW3otON_fb8d_IyyJ0Wxq_at4g9fBu_0jjCfcjvaQH7GnzqBQ1iSA3sABclAtyUXMDsLsUNTJbNyApKEWqffuB4NOab2URurW1maU5L21Y72rxWKXZKLZQ6ZBjEQ6WK0lydUsL1IvHubTFf1XFKgq2j9XMF3h5V7Tg4sGvHL8a6IVopMnYRuTrQfFWgqOD117KwofuCebSBYroOLlFuFcbLDj5QohsAYBpUb2xkKGfEbD14tpJL2d2l8g9rzKtefg",
+            "price": "$69.71829",
+            "vendor": "Axis Part Limited"
+          },
+          {
+            "url": "https://www.adafruit.com/product/6416",
+            "price": "$492",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0CVQTWGBX?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$189.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005006242722520.html?pdp_npi=6%40dis%21USD%2189.53%2189.53%21%21%21605.32%21605.32%21%402141149b17793779012693228e1260%2112000052738794183%21affd%21%21%21%211%210%21",
+            "price": "$89.53",
+            "vendor": "AliExpress"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/6416",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0CVQTWGBX?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "85x56x17mm",
+      "description": "Primary processing unit for SDR data analysis and overall system control.",
+      "productName": "Raspberry Pi 5 4GB",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=Raspberry+Pi+5+4GB",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxI21VKomzQzik8Xln94HI4vJbL7mXg0aou805I4k12CUibyYZ2ExPMvwziQzUgjVNGYVFbZAL0beAJLL9pwKdUtp1nDkDiurESZsCJysbbftC0UIFco1HT6OGQtOxiQM0uZE9e6NgIk3JSKhQNOS9vmuVYj6uEKPRZxKB8Vfzbe35XiYWQqpASygEMvzS0DEDOXLW1I0ICUqCjxWbio9tJSx9XLm3m6Q3MWbVeIvqXAVMcloFDbtPojICs1zZUu6eZOOV3ih4bzJr60natSns2nIgQDuXbVjisEtznn24dunEaCiSjBKI5mChVunON3y9mIWyNMu7d5g4heJvl5UVbHnvi4mIp5XxFFsZIeo8Uth63dXlIVRLQ9SLqVhKp1Q6viZRP2csGweBOpyITz2hKGeutlTCCsQOs7GQqXChvK1mJbDA1O1eX95v6nlSf186vwqfldzInee7EoCzpGU9358SyyTGB1oCYs5GJfpvXaIL0tBkN9uOQBgn7cJ3jDZgpbc8OlmXwlehUjd0LgibWiLlFwXeBnys0hyAmDFHhhm2UDmQEFzH2qXaQn5Y2xKnlvG4UzCCAHSYY0P9oYAhbcMv782MD2GVz3zFICTgOCcBTGXcqoZAIRYB1Ykr5zKGoEJwW2a2ZrUpKqPhj9fVIsb",
+      "estimatedCost": 60
+    },
+    {
+      "id": "esp32_microcontroller",
+      "name": "Secondary Control MCU",
+      "pins": [
+        "GPIO",
+        "UART",
+        "SPI",
+        "I2C",
+        "ADC",
+        "DAC",
+        "USB"
+      ],
+      "type": "mcu",
+      "partId": "3e49ed92-67c9-4cbd-b6b0-3772fb752646",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=ESP32-WROOM-32D+Dev+Kit&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51L+KGANGdL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VIN,GND,GPIO2,GPIO4,GPIO16"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0C9THDPXP?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$17.95",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005006613312645.html?pdp_npi=6%40dis%21USD%2113.49%214.32%21%21%2191.20%2129.18%21%40214114e317793803083838479e1235%2112000037826262416%21affd%21%21%21%211%210%21",
+            "price": "$4.32",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0C9THDPXP?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "55x28x12mm",
+      "description": "Microcontroller with Wi-Fi and Bluetooth for logic, motion detection, and LED control.",
+      "productName": "ESP32-WROOM-32D Dev Kit",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=ESP32-WROOM-32D+Dev+Kit",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHUQ6O5G4o7qoHEJis6EwjOejJStoz9oxzZi9lZIHPbwKWbYUBoP3e7i04iXBxEJ2CFroL0BFYHSUjaeYPho0IED3Fx3qSNwUbgsjlbANHX1Dsy0cVBJwg5imFh5XuYcESiAfMO4sz4DyLatDI9LSnNiIMfDv1qs7tuzGHI9pnrzJ5ThPn0G7rvIP8O4VevFNUZlJMezveBfxyWDBTMWBnlWcqoJO1CmTnwnGclt6pkrywHtMHpKhT2cgHGDjywa0yrgcvDDIS9cAnT7zfIcSNlSLk0lmsJmK0dkNPHTkbLsR9a0Wi9EtBIPdVoswPxnYDFCtEe2sbodrRnjSTFaafgxWFIrPn0ls69SGlvIWcNIXRcBD1jwWXNgosw6NUvJ3VzhsPw7IaVDXwg5FpT6fKSSlr05IXMSfv3jdSPY5zRfDqBJj06JHjB1Lqcf9dcPbRd0SCokno7Uy63iwLw6mQuDxpM7bCzCrlk9v75swp546G9sbNPd8FnfwAV4dG1VViuD3o0OCe2r3scZrTDUseZ5gErClPiXRzCTZCNmN4mhZuZgyl7ikclGpAwwacJ8xITY4dvVpFqne0qgiVas9AdbFStqlvWdWR0JhTUi4YyFQurB8OQJrZq1ipOJX31ovLEt1IK8BlzxnMnS6OPVurxz",
+      "estimatedCost": 10
+    },
+    {
+      "id": "raspberry_pi_camera_module_3",
+      "name": "Main Vision Camera",
+      "pins": [
+        "MIPI CSI-2"
+      ],
+      "type": "sensor",
+      "partId": "6bf48057-ff33-401c-9d04-37b1022c4b0b",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Raspberry+Pi+Camera+Module+3&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/5657-04.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "CSI"
+          },
+          {
+            "label": "autofocus",
+            "value": "Phase Detection Autofocus (PDAF)"
+          },
+          {
+            "label": "resolution",
+            "value": "12 Megapixels"
+          },
+          {
+            "label": "image_sensor",
+            "value": "Sony IMX708"
+          },
+          {
+            "label": "key_features",
+            "value": "HDR, Improved low-light sensitivity"
+          },
+          {
+            "label": "output_interface",
+            "value": "CSI (Camera Serial Interface)"
+          },
+          {
+            "label": "diagonal_field_of_view_wide",
+            "value": "120 degrees"
+          },
+          {
+            "label": "diagonal_field_of_view_standard",
+            "value": "75 degrees"
+          }
+        ],
+        "examples": [
+          {
+            "url": "https://gist.github.com/maxpromer/3cdf718647b16d0dfc009ffa1f15add6",
+            "title": "Raspberry Pi Camera Module 3 image preview with Python",
+            "description": "A simple Python script to display a preview from the Raspberry Pi Camera Module 3 using the `picamera2` library."
+          },
+          {
+            "url": "https://github.com/RoboticXps/ras-pi-cam3",
+            "title": "Codes for Raspberry Pi Camera Module 3 (Community GitHub)",
+            "description": "A collection of community-contributed code examples and scripts for interfacing with the Raspberry Pi Camera Module 3."
+          },
+          {
+            "url": "https://github.com/jackberger03/mast3r-camera-client",
+            "title": "MASt3R-Camera-Client (Raspberry Pi Camera Module 3 client for streaming images)",
+            "description": "A client-side application for Raspberry Pi Camera Module 3 designed to capture and stream images over HTTP POST, demonstrated with a MASt3R-SLAM server."
+          },
+          {
+            "url": "https://notenoughtech.com/raspberry-pi/raspberry-pi-camera-module-3/",
+            "title": "My first steps with Raspberry Pi Camera Module 3 - NotEnoughTech",
+            "description": "A guide on initial setup and commands for capturing videos and pictures with the Raspberry Pi Camera Module 3."
+          },
+          {
+            "url": "https://github.com/RoboticXps/ras-pi-cam3",
+            "title": "Codes for Raspberry Pi Camera Module 3 - GitHub (RoboticXps/ras-pi-cam3)",
+            "description": "GitHub repository containing example codes for the Raspberry Pi Camera Module 3."
+          },
+          {
+            "url": "https://gist.github.com/maxpromer/3cdf718647b16d0dfc009ffa1f15add6",
+            "title": "Raspberry Pi Camera Module 3 image preview with Python - GitHub Gist",
+            "description": "A simple Python script example for generating an image preview using the Raspberry Pi Camera Module 3."
+          },
+          {
+            "url": "https://forum.arduino.cc/t/interfacing-a-raspberry-pi-camera-module-3-with-an-arduino-board/1101850",
+            "title": "Interfacing a Raspberry Pi Camera module 3 with an Arduino board - Arduino Forum",
+            "description": "Discussion on the feasibility and methods of interfacing the Raspberry Pi Camera Module 3 with an Arduino board, noting direct compatibility challenges."
+          },
+          {
+            "url": "https://docs.cirkitdesigner.com/component/d8efe652-e7f1-4d43-a6d0-0fc49340621e/raspberry-pi-camera-module-3",
+            "title": "How to Use Raspberry Pi Camera Module 3: Pinouts, Specs, and Examples",
+            "description": "Learn how to use the Raspberry Pi Camera Module 3 with detailed documentation, including pinouts, usage guides, and example projects, perfect for integrating it into circuits."
+          },
+          {
+            "url": "https://www.tomshardware.com/how-to/raspberry-pi-camera-module-3-python-picamera-2",
+            "title": "How To Use Raspberry Pi Camera Module 3 with Python Code",
+            "description": "A tutorial demonstrating how to use the Raspberry Pi Camera Module 3 with Python code, including capturing HDR images and utilizing the picamera2 library for basic camera operation."
+          },
+          {
+            "url": "https://www.raspberrypi.com/news/the-official-raspberry-pi-camera-module-guide-out-now-build-amazing-vision-based-projects/",
+            "title": "The Official Raspberry Pi Camera Module Guide: build amazing vision-based projects",
+            "description": "This official guide details how to attach Raspberry Pi Camera Modules (including Module 3) and integrate vision technology into various projects, covering hardware and software aspects."
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.digikey.com/en/products/detail/raspberry-pi/SC0873/17278646",
+            "price": "$25",
+            "vendor": "DigiKey"
+          },
+          {
+            "url": "https://www.adafruit.com/product/5657",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.sparkfun.com/raspberry-pi-camera-module-3.html",
+            "vendor": "SparkFun"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0BRY6MVXL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$48.19",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008638757234.html?pdp_npi=6%40dis%21USD%2110.90%215.34%21%21%2173.91%2136.22%21%402151fce817793288743818661e101f%2112000046051801322%21affd%21%21%21%211%210%21",
+            "price": "$5.34",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.adafruit.com/product/5657",
+            "price": "$29.25",
+            "vendor": "Adafruit"
+          }
+        ],
+        "datasheetUrl": "https://datasheets.raspberrypi.com/camera/camera-module-3-product-brief.pdf",
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/5657",
+            "title": "Product Page (Adafruit)"
+          },
+          {
+            "url": "https://www.raspberrypi.com/products/camera-module-3/",
+            "title": "Raspberry Pi Camera Module 3 Product Page"
+          },
+          {
+            "url": "https://www.raspberrypi.com/documentation/accessories/camera.html",
+            "title": "Learn more about libcamera (Official Raspberry Pi Open Source Camera System)"
+          },
+          {
+            "url": "https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf",
+            "title": "Picamera2 Library Documentation (Official Python library)"
+          },
+          {
+            "url": "https://www.waveshare.com/wiki/Raspberry_Pi_Camera_Module_3",
+            "title": "Waveshare Wiki: Raspberry Pi Camera Module 3"
+          },
+          {
+            "url": "https://techeonics.com/raspberry-pi-camera-module-3-guide/",
+            "type": "guide",
+            "title": "Raspberry Pi Camera Module 3 : Setup, Review, and Troubleshooting Guide - Techeonics"
+          },
+          {
+            "url": "https://spotpear.com/index/study/detail/id/936.html",
+            "type": "guide",
+            "title": "Raspberry Pi Camera Module 3 User Guide - Spotpear"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0BRY6MVXL?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "25x24x9mm",
+      "description": "High-resolution camera for visual sensing and streaming.",
+      "productName": "Raspberry Pi Camera Module 3",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=Raspberry+Pi+Camera+Module+3",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxha0tHJoeB3RIWQspgrwN8ITHHOy21wnWIm7MtSD3WlwmfQIwDEBVfCj76MdiuRgQybHSzvlvsi4wpKQmpXE0o2Y0LydIeXZiL43PYA84pPTRYEzELeprbzUEQy2n61hoDvWOkaAuYwSmUL2X7iyf5nBInJjP1BpzKvLoXbWCTYKbLqKQpZGnHbcVOWigHVRCffIN0itVqwLgDXhtAcPODMCvMWhosuFClUPy7AzwRBwD41Xscxrg0irK5v3ZzTX0eXdpY1DT8BwW0KaDVpz6fJq9OaC8yQFadmewklPw6V5WzzBxpfXLWJWuiQbzLNVDc4YauJNr6SkSyRpyEoxKTCbS20iF35IFJ6D850s5tcZkzxlHTLg1fAB56VNqx3VA7MAdP1qRQMJd89HxtOLeaIRASj8qE45Rkrn5L1koSxTTNHs5yIR1ANodzgd9Ms9gl45oYVC1htQPIwVLrUJ99PiewMDmaY9n3HHQ7cOle18RfmrezeAM4DHJLAOVap1JjaBFNn6Z5jktstcSo6ye7zHs4rnubahLiU4CihvExP92UYJFI2droIHM9Zni1k2WTRHxmAClAEluAedRksdp2UeKUZ3ZhDVflURuEpSTxY5cLsv1u0BAFil1uoHTvaab1EYJ2RZRUidl40olD0vS0xD",
+      "estimatedCost": 25
+    },
+    {
+      "id": "pir_motion_sensor",
+      "name": "Body Motion Detector",
+      "pins": [
+        "VCC",
+        "GND",
+        "OUT"
+      ],
+      "type": "sensor",
+      "partId": "2c742a6c-c167-496e-baa4-0583eb867eb9",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=HC-SR501+PIR+Sensor&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41NnUqnemiL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07KBWVJMP?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.49",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005009267078267.html?pdp_npi=6%40dis%21USD%211.98%211.98%21%21%2113.40%2113.40%21%402151fd3a17796024084183799e10b2%2112000048544071801%21affd%21%21%21%211%210%21",
+            "price": "$1.98",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B012ZZ4LPM?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.49",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07KBWVJMP?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "32x24x24mm",
+      "productName": "HC-SR501 PIR Sensor",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgVHdy9N4jXmN3QpD9oN6R8ampmtPEKuvQs5tLkHsUqzXDr3CDJTiqnzuNTDB3GYRF8YarU9dJHpJXlSi0AIzvxEmPRgIhE1AdfEPUlJidFq28pAQWtkOJOOBt5KQytTzu5ivh5Lm7i6zoMKw6BbIHk2CNkB7ErHEvQaEWcMW2mhvARmuSwh1DcGk6kt8mb2hy2OYzAKEbtfm740lXmNMm1WH9i6EmBQd92ORAY5KMbc8KuRCtgom5Ql5W2FvxyUI01kevFsVkD8fYjBH4bJVfB3OpDSSSR9Ce9ynQvZjxnFK8WqRDvWrzf9nBHsorw9xSJFF4X21DOFnwXj6JgBfUWOfORHIz9IQKUg8xLOBwkMQd6ZOCuFTowAhbwOAwPKAdRr0Lm1rlaoCBhfcoS8DdaYDy6ARtbeVZT73auszAod5fPxRP81jbtxZYgQN5RH0jugi5QQyp6GJukqtIttI5HjHvrRMbPxV325RYg1IUyAQCt6W0tELiomoaExMlIwOrrFeWeUOvSfNnD1DG3BxezO2Fl68I8aHVtYrTkHpeUBgrrrGK7ENnQ7hjcRkB4QEVeACl3eODO5RmA0omDbuh9oUNwtJmzYmsiBQPlxJpjQJgOEcV2UDUyM0fkxJEDejRNpDlNm4xifIqKscdln5rb5",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgVHdy9N4jXmN3QpD9oN6R8ampmtPEKuvQs5tLkHsUqzXDr3CDJTiqnzuNTDB3GYRF8YarU9dJHpJXlSi0AIzvxEmPRgIhE1AdfEPUlJidFq28pAQWtkOJOOBt5KQytTzu5ivh5Lm7i6zoMKw6BbIHk2CNkB7ErHEvQaEWcMW2mhvARmuSwh1DcGk6kt8mb2hy2OYzAKEbtfm740lXmNMm1WH9i6EmBQd92ORAY5KMbc8KuRCtgom5Ql5W2FvxyUI01kevFsVkD8fYjBH4bJVfB3OpDSSSR9Ce9ynQvZjxnFK8WqRDvWrzf9nBHsorw9xSJFF4X21DOFnwXj6JgBfUWOfORHIz9IQKUg8xLOBwkMQd6ZOCuFTowAhbwOAwPKAdRr0Lm1rlaoCBhfcoS8DdaYDy6ARtbeVZT73auszAod5fPxRP81jbtxZYgQN5RH0jugi5QQyp6GJukqtIttI5HjHvrRMbPxV325RYg1IUyAQCt6W0tELiomoaExMlIwOrrFeWeUOvSfNnD1DG3BxezO2Fl68I8aHVtYrTkHpeUBgrrrGK7ENnQ7hjcRkB4QEVeACl3eODO5RmA0omDbuh9oUNwtJmzYmsiBQPlxJpjQJgOEcV2UDUyM0fkxJEDejRNpDlNm4xifIqKscdln5rb5",
+      "estimatedCost": 5
+    },
+    {
+      "id": "microphone",
+      "name": "Audio Input Mic",
+      "pins": [
+        "VCC",
+        "GND",
+        "OUT"
+      ],
+      "type": "sensor",
+      "partId": "64f7eecf-e0c4-48c6-8490-5357b9ae8583",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Electret+Microphone+Amplifier+MAX9814&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/3492-07.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005006109706636.html?pdp_npi=6%40dis%21USD%219.39%213.08%21%21%2163.56%2120.86%21%402101611117796098624246734e0fea%2112000035789927030%21affd%21%21%21%211%210%21",
+            "price": "$3.08",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.adafruit.com/product/3492",
+            "price": "$4.95",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0D3CXWBBT?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0DYV1PZ7X?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.99",
+            "vendor": "Amazon"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/3492",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0D3CXWBBT?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "25x14x7mm",
+      "productName": "Electret Microphone Amplifier MAX9814",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=MAX9814+microphone+amplifier",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHnklg4VRXMmAfRzHCJTOWEUAeJVkXmpYBUrfxuhZmkrYAquTFM6bByLNyvaSjYbKWE5gc3i1ACCQ2WdIB3acBg8nYtYGrplQFE8efi3gCPRa0jIzLgPSWNoZpd2U31YaQLRFJMDHH2fIQJ4iLFA9PkU2V9LOhQmornREhs2m8e5wgo1Qcr7kH5Czf2QblGx5K3OMZAe5Epf5cEcF6sppYX8nsoHuhGYVNQZto6d6seqXWEjm0ldphUgTMm79Mi2yNNolLr1LS09PlvbVrKPAlaDyi0lMy8yNDMEFhUwuxLgcay3MoZ7XaRC3O5h82hf9DrO8vDgcIpNstuQSYGrMbMTgLg5VaGzgptcBZJ4Yoo8G8yi1YJEXRm6pRvztUyhkgv0yluHz2GO13K2Rm42bYkoau159vFkTIZY8CbXA5SaIy8WJNt6kfpvDU0VtXRiTnHfuQrNKzUvuXyCvoNazihcgvE2Cl7bXqIsXohxtNfyjaFwT5YW5aBDPr3ysNySueSs1gb0gEb8BqOWZz1OOu0kDxD1F8LaoODssGzmT2r3u5ud6y6iXDy8pOKN5OVYXcmSVkB0Wjx3mULAiFUeUs3XfurW7NyavttBy0V70JO7LeFJqgwHLwQ4oyBbXMWx5qc3pvZIqOoajHDsQQXfZdrV",
+      "estimatedCost": 8
+    },
+    {
+      "id": "speaker",
+      "name": "Warning Announcement Speaker",
+      "pins": [
+        "SPK+",
+        "SPK-"
+      ],
+      "type": "actuator",
+      "partId": "f569cd2c-9e96-4ff9-b266-21e339f7dd3d",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=2W+8+Ohm+Mini+Speaker&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/3923-06.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0B4D1BN4F?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005006750533007.html?pdp_npi=6%40dis%21USD%216.86%214.46%21%21%2146.44%2130.19%21%4021013cc617794666477825691e11bc%2112000038180133185%21affd%21%21%21%211%210%21",
+            "price": "$4.46",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0C49TKSQQ?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$5.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.adafruit.com/product/3923",
+            "price": "$1.95",
+            "vendor": "Adafruit"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/3923",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0B4D1BN4F?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "30x30x10mm",
+      "description": "Plays recorded stories and other audio.",
+      "productName": "2W 8 Ohm Mini Speaker",
+      "purchaseUrl": "https://www.adafruit.com/product/3923",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRIz5qa9PTAUtVtdWwuOmXyhkQQUc2sOpjibY9rUEkBrDSpCmrNlwNbiOM29jT6hGLMnkrxKWdyQWMlWq636PzaVXbvqPlzqgaZgqFwGHryW1MT89DTY6WEjlCWLRz9vl1SJ5eOX6HvuX3t2qu9jCBYWA0iu0w8WOGp6mnKpDQHJ1UdEz6OOsan18vrYJLtsCDDb960i80Qvq9pi3k2JC1gv2ZFq0DKyKfIjHq6u3xQ4pAhXTkDCXfLGNAtBf69GGcYpVZt6w6Nryw3ToxoRTKcBkDJOEemnlVyHrAaBu8rtlIsLDZdLhticoxWh6ziTXUrZKhlkHNUqU22IaIU868fylgS7FkfSE7kJjIGdlSdniQgLB7CONxICFBrEy12vU3mVIZSRrX6hMPCk1MWJXUD3UvryZB6wmGLsoa2X84WxTBWgzTT9xgiTB3fu1wjjKNL4ifXEfwbXHbADhaBAyRj6lZxXGUOEKyq5jui3lIYrzWV6C97HIK6xGHAP82tXSAB97U8OaBSE2JGodRs2A8BToWEU5Aa2qs6MN1NRGTRz9yiQvM85NkD04qb5xHpXeTWyTgOG1wFGrv8xArnHfpHfdMzz5jy88rNSgfrySJPQHbahQ76VQzIWfvqpIYTCNaFWD1TygxHqJxbp7jV4j8hz",
+      "estimatedCost": 3
+    },
+    {
+      "id": "led_eye_right",
+      "name": "Right Eye LED",
+      "pins": [
+        "Anode",
+        "Cathode"
+      ],
+      "type": "actuator",
+      "partId": "db4d5e4f-c2a8-4ac3-a973-98ee5135b122",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=5mm+Warm+White+LED&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41IpHCjVX2L._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005005975215427.html?pdp_npi=6%40dis%21USD%2110.51%213.68%21%21%2171.08%2124.88%21%402140d36117795253936611334e0fe5%2112000035959086436%21affd%21%21%21%211%210%21",
+            "price": "$3.68",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0785DLY5J?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0785DLY5J?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "5x5x9mm",
+      "description": "5mm warm white clear LED for visual indication.",
+      "productName": "5mm Warm White LED",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=5mm+warm+white+LED",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIC9ulR5Z8hWQRUlQByfGdNhO90Mx0qPrDJ7GWB3ZYRCLIV7Opnt2WSg86ekNES9GOBDQgIZc1z08mtHXGN5qmYrjJ4V43Xv0REK3hyMjD93qdrjTKukZGkHnvGTioUwqiaj9nOfxRcEktVmkgnu2m7ZKXC0ydOnHQ2iYsav6Y3pg1drNLzDvu3i2kc4k19wsqHF0cvxRrfZSNFSvk9bqEBuCyQ6G0a0w3ElS6M7QKkaghtcVE3CZPOHZ1rfnziNOciQwWDboemu4t5Ai6CDEE9Hbg1DOGq079eBPGTxzxqIEr6OP1BUbKTDB6r078hs4j8eXXeDFyBBUyZZDivFyHHbmkUkuygE1zTUgZxo98PF0ZifR3kg6EgDTvCQxjgdOrBQ4i7HhWJK06rpp6K7wcnQxxEfzcPpuGssFTyOP9VL6mPvZo0vV8dLmjdSlvTyjEmoUPio8rHUDxiGGLoUdQsqj7pW0xBwlNy6IYUyqlD1lSgHJAXARFxBc8gcIU5JaCDdtX80plsIKqlBt0fibzAfe1bUTrFy4bjsZ2h6IHtmBhkhpBRoA7UUHyxH2Y9oNv8Md9fCLqV3YzOTF4q4XaodeSOWDq2CWPxFLIZqr3211nvZyX8t4T4fH9YRS2OW3uYkIE358NcRTAuGHejzVh4f",
+      "estimatedCost": 0.2
+    },
+    {
+      "id": "led_eye_left",
+      "name": "Left Eye LED",
+      "pins": [
+        "Anode",
+        "Cathode"
+      ],
+      "type": "actuator",
+      "partId": "db4d5e4f-c2a8-4ac3-a973-98ee5135b122",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=5mm+Warm+White+LED&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41IpHCjVX2L._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005005975215427.html?pdp_npi=6%40dis%21USD%2110.51%213.68%21%21%2171.08%2124.88%21%402140d36117795253936611334e0fe5%2112000035959086436%21affd%21%21%21%211%210%21",
+            "price": "$3.68",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0785DLY5J?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0785DLY5J?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "5x5x9mm",
+      "description": "5mm warm white clear LED for visual indication.",
+      "productName": "5mm Warm White LED",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=5mm+warm+white+LED",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIC9ulR5Z8hWQRUlQByfGdNhO90Mx0qPrDJ7GWB3ZYRCLIV7Opnt2WSg86ekNES9GOBDQgIZc1z08mtHXGN5qmYrjJ4V43Xv0REK3hyMjD93qdrjTKukZGkHnvGTioUwqiaj9nOfxRcEktVmkgnu2m7ZKXC0ydOnHQ2iYsav6Y3pg1drNLzDvu3i2kc4k19wsqHF0cvxRrfZSNFSvk9bqEBuCyQ6G0a0w3ElS6M7QKkaghtcVE3CZPOHZ1rfnziNOciQwWDboemu4t5Ai6CDEE9Hbg1DOGq079eBPGTxzxqIEr6OP1BUbKTDB6r078hs4j8eXXeDFyBBUyZZDivFyHHbmkUkuygE1zTUgZxo98PF0ZifR3kg6EgDTvCQxjgdOrBQ4i7HhWJK06rpp6K7wcnQxxEfzcPpuGssFTyOP9VL6mPvZo0vV8dLmjdSlvTyjEmoUPio8rHUDxiGGLoUdQsqj7pW0xBwlNy6IYUyqlD1lSgHJAXARFxBc8gcIU5JaCDdtX80plsIKqlBt0fibzAfe1bUTrFy4bjsZ2h6IHtmBhkhpBRoA7UUHyxH2Y9oNv8Md9fCLqV3YzOTF4q4XaodeSOWDq2CWPxFLIZqr3211nvZyX8t4T4fH9YRS2OW3uYkIE358NcRTAuGHejzVh4f",
+      "estimatedCost": 0.2
+    },
+    {
+      "id": "battery_18650_1",
+      "name": "Main Power Cell 1",
+      "pins": [
+        "Positive",
+        "Negative"
+      ],
+      "type": "power",
+      "partId": "d4ccf73e-421f-49c7-85a9-8d7bf790e9a3",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Panasonic+NCR18650B+3400mAh&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41R7ZInW2sL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0DHXCZKJ1?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$16.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005009719530674.html?pdp_npi=6%40dis%21USD%2113.95%216.42%21%21%2194.30%2143.38%21%40212a7b8d17793817242437136e1184%2112000049944342851%21affd%21%21%21%211%210%21",
+            "price": "$6.42",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0DHXCZKJ1?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "18x65x18mm",
+      "description": "Rechargeable Lithium-ion battery (3.7V nominal) for device power.",
+      "productName": "Panasonic NCR18650B 3400mAh",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=NCR18650B",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxfymD4y241FPxyl07R1m65JsMrFFJk7qlVVILrn9ghEKhthmj7qxzhIzMjWjL8xUN7pUuyM1YWJsWXh9lDRVpIN5rbHlWqAL9dH8SJJtfWA2zAMEjg4GodZLD4oUHcT30e2N2lxtvTrpQRtOmetdoBjC4cjl7M79HL0qpI7gGmfIMvMtA2YznjRAejMK30CiwKmrA7x9foeZOL2pza6jSn3hhZ69dSG3WFeXUIW46yhMAIa8TnCZdNPL3Uw3GoX4vUju1Hhlj9pynKOcIYD5pzVBqzTfORqGlFfH0z4h98MYWUPC0kZVddduoklycAwf4dQcjLsR56TJxEVGcByhubeOrKkOXXobhEOXmhGznpHgPYeb6hGsxzVeqhjodnfy7BY4hBBYxBPrK4kHjrGO6sTIbtKRmfER4gGq3mLgJz3YTtoiaaibt4B50FKoLpkJxVHHzFH3FGXjo3C7yOeWNeliLsUa5P6Rf9VHw2sRg1D0jzmxdBcdCSZeH5hvGBikBo5MHpao0d51M0kJ5rRaAGXbwUTqrNQxswddWoHtZas2wJ2kU9N2ph2wAsRdGIsEBTRnzxCJngyjMThP5JnA1TzoKSFRslKV6yymmun9EeUiiUGIcspmbENynPX7O4uBTkXFRGLUV2vVnjcoIsHTgvZh",
+      "estimatedCost": 7
+    },
+    {
+      "id": "battery_18650_2",
+      "name": "Main Power Cell 2",
+      "pins": [
+        "Positive",
+        "Negative"
+      ],
+      "type": "power",
+      "partId": "d4ccf73e-421f-49c7-85a9-8d7bf790e9a3",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=Panasonic+NCR18650B+3400mAh&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41R7ZInW2sL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0DHXCZKJ1?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$16.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005009719530674.html?pdp_npi=6%40dis%21USD%2113.95%216.42%21%21%2194.30%2143.38%21%40212a7b8d17793817242437136e1184%2112000049944342851%21affd%21%21%21%211%210%21",
+            "price": "$6.42",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0DHXCZKJ1?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "18x65x18mm",
+      "description": "Rechargeable Lithium-ion battery (3.7V nominal) for device power.",
+      "productName": "Panasonic NCR18650B 3400mAh",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=NCR18650B",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxfymD4y241FPxyl07R1m65JsMrFFJk7qlVVILrn9ghEKhthmj7qxzhIzMjWjL8xUN7pUuyM1YWJsWXh9lDRVpIN5rbHlWqAL9dH8SJJtfWA2zAMEjg4GodZLD4oUHcT30e2N2lxtvTrpQRtOmetdoBjC4cjl7M79HL0qpI7gGmfIMvMtA2YznjRAejMK30CiwKmrA7x9foeZOL2pza6jSn3hhZ69dSG3WFeXUIW46yhMAIa8TnCZdNPL3Uw3GoX4vUju1Hhlj9pynKOcIYD5pzVBqzTfORqGlFfH0z4h98MYWUPC0kZVddduoklycAwf4dQcjLsR56TJxEVGcByhubeOrKkOXXobhEOXmhGznpHgPYeb6hGsxzVeqhjodnfy7BY4hBBYxBPrK4kHjrGO6sTIbtKRmfER4gGq3mLgJz3YTtoiaaibt4B50FKoLpkJxVHHzFH3FGXjo3C7yOeWNeliLsUa5P6Rf9VHw2sRg1D0jzmxdBcdCSZeH5hvGBikBo5MHpao0d51M0kJ5rRaAGXbwUTqrNQxswddWoHtZas2wJ2kU9N2ph2wAsRdGIsEBTRnzxCJngyjMThP5JnA1TzoKSFRslKV6yymmun9EeUiiUGIcspmbENynPX7O4uBTkXFRGLUV2vVnjcoIsHTgvZh",
+      "estimatedCost": 7
+    },
+    {
+      "id": "tp4056_charging_module",
+      "name": "Battery Charging Module",
+      "pins": [
+        "IN+",
+        "IN-",
+        "OUT+",
+        "OUT-",
+        "B+",
+        "B-"
+      ],
+      "type": "power",
+      "partId": "0a6f37d3-ce83-471b-9ab4-f87dbb9bf1d4",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=TP4056+18650+Charger+Module&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/RJIGrygfltpc8WbaxmFNyUx_TC_DZZuTcLgAaZ8k2zY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFDVnhMTmZhM0wu/anBn",
+      "quantity": 1,
+      "dimensions": "28x17x5mm",
+      "productName": "TP4056 18650 Charger Module",
+      "purchaseUrl": "https://www.amazon.com/s?k=TP4056+charger+module",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxfJ5fNcuPn70f8Nuiu9RNCG5qmk5Izv7ASEfrThVI1diOE0CrFJJ57Ex6MfbtS2DwDSVzT2jGNU4fWQamcWgmU4NdrHz3m9kgDy5SBr8WblpGLqvcGtkfB9oWvG0q81LsuNVftNdLonrD24umPvWtEHBCLjE9PHSm8l6CO19gX9ED0ZvKaaV2FMkCJxXvgk2cTokAcQmLfMDP10Mh5y4NNdLLTjZdWN612h6xHPiWSqmWqGGGi16es19DQYn4sO3wRUWvxyjwRuDrlzuSIl3vU8PGUXaFZzbhpSF0MZAeJi0dLCdoD9KvxzGN1T5rBWqySWnTxMvJrRy5grzRU3uWQFIsc8BJkgLND6hIzebOsPF5vRIIx9cACtBqW3uu50TkgKmfvx53bdgQCX5qihZh59TOoCQ2sFrsdfUVOKBuxmahMFKj0cRpZ6CdjvKQFvooBMTCSG9ImaeqR0LBUjCAmx7INzinP7X6Z9FSlrcDftJdgiaxVpQ5FWT3iyLjQpJDaEutP05Bwq0NoH44H6cDY9Lbo3mtpPiHDlE2amIbE5Q4jXIt6mAYoGNTGGVOXMNKv1OQdEmAgMmDkDzdxb2yMfr42CwAZi37qgxlsF4q3baLluALHHpoxbxv09lkyOcY8JUVXk3kXUaJphqmP8jVihV",
+      "estimatedCost": 2,
+      "amazonUrl": "https://www.amazon.com/dp/B07PKND8KG?tag=blueprintam-20&linkCode=osi&th=1&psc=1"
+    },
+    {
+      "id": "buck_boost_converter",
+      "name": "Voltage Regulator Module",
+      "pins": [
+        "IN+",
+        "IN-",
+        "OUT+",
+        "OUT-"
+      ],
+      "type": "power",
+      "partId": "3c824136-4ccc-487f-b0aa-9c59a8a88659",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=XL6009+DC-DC+Buck-Boost+Converter&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51vOUxPqSzL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VIN+,VIN-,VOUT+,VOUT-"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005006896893391.html?pdp_npi=6%40dis%21USD%216.36%216.36%21%21%216.36%216.36%21%4021013cc617794599878171533e102d%2112000038648744972%21affd%21%21%21%211%210%21",
+            "price": "$6.36",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0F5PLQ9MK?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.98",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B08CHCG79J?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$5.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0F5PLQ9MK?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "48x23x14mm",
+      "description": "XL6009 buck-boost converter to provide a stable 5V supply for servos and modules from the LiPo battery.",
+      "productName": "XL6009 DC-DC Buck-Boost Converter",
+      "purchaseUrl": "https://www.amazon.com/dp/B08CHCG79J?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxRvV0fv2nGFnJO0BjGBm2FMUmaFwBazUhGNgfJ6poaaCYYYDZ7xEueYIqxbqrmm8Hk3q9g1Ex5i9L4Wpf9oMmt9ZHrTpwAbxtrYqpAjanG0iSwsO9SLpvvjQXqKCIpJFDwOmDW4rlwHNsrQaLmX4VlbXdMufXkHrNiCWgdq5tt106EZnyh6UT0LyWx5kHAm2KaNzqEpDsIttH3e8X9L6L4vPKPllK05R5MvvmCJjmQwR1da1rghhgAqqmWc7ScGiTaN3dO8CvdeddFEKC1b6HS4VrmR9YTi7pLyPg6dT7LZJDoQ0tAQ4rzncnFKwU9EwZgph7JA7pMr2oRxitIfkcLmE7vaOSIu2CbDOAcNkrmYELgnhVHtTxHkyCpREktRY8gxMWQCPhLdlw4aL2M3HsK4rlk4R9DsJ3evNwoEULkrlEqEyqqEnLY7Xny084WaeQA6LGNRkDH2gqfhu1zYUPHaWN5h8F98kUc8she3bYiYLeEPXpa72pWbY2yes0BeDgBWN4PxUBBsQNsDloXI4Y5bBY73cWYKreqw8ppbxcRI6HvG8Rfo0ed6Wwv9kg3mP6nhZXQAIU1kn9I9e8p55nVjDp4r4000fN6F2yHlFbc8FYRaWbQhPNFpBJnKDYlEYENOz06F6s7jcr34Ej9HIlBMr",
+      "estimatedCost": 5
+    },
+    {
+      "id": "cooling_fan",
+      "name": "Electronics Cooling Fan",
+      "pins": [
+        "VCC",
+        "GND"
+      ],
+      "type": "actuator",
+      "partId": "df5b8ef7-4a14-485e-8afe-b8fcb4adab16",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=30x30x7mm+5V+DC+Fan&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41kvEkDZKWL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005008232870402.html?pdp_npi=6%40dis%21USD%2112.30%217.26%21%21%2112.30%217.26%21%4021013cc617794387614847486e11f9%2112000044351219535%21affd%21%21%21%211%210%21",
+            "price": "$7.26",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B08MKRL4GS?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0794T2MK9?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B08MKRL4GS?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "30x30x7mm",
+      "productName": "30x30x7mm 5V DC Fan",
+      "purchaseUrl": "https://www.amazon.com/dp/B0794T2MK9?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxgpTQ1pn8IYMa6Dp8mRXaS6TZGu8BLpMaaHZd29HEIz6uiGplVd2ZMOFQTYgjcpahVI68Cl0RpxrLP1dvJCilOtlkOEddUdhyitZErFjuoA63dSY38e7YPUXejiLQaFM6mfubbbIqCH937KpgEdtl8dwWwtrdAsGL9x91m33UfcuSCmw8DsEVVk0SR6xNIIiS8Dc54NLdt4JKMo7fGIs0PVnlPQjh5kTNvOAMeYNnUuvitSdvrld5UxLJaWKAdLlQ8M0MaBVrfsaALWAyzGNpQjskxkS3m3GOaO9iPHc7tV0hVERUUijxZMoQFDynI2RGXNclCYbWbb18MI7dy00ceTxekISUUVVjJe2aTGOnRQVNhQm7cUBsgWTNIghkvNBYYjwfKgGevLayv1jWuPgvxuhe5t77Tlw304zOOHPGgZuEnfZeDm7ZU9fT1GZ520gVFBApS6AQKDYzDbUrilauBzVEtJDCmBgVDA97ZiEbDmlGAYIuXcJYtmSP18SljqUD9x9npQVvwd1yqFao8iuI2h0vhLd7Q8LgMz76Bh64eF7MPzV5P07YTNtiiasfyRbnij3tgDF563QppZzTr5fzlTLyy92fZRTYjeK4WsUsj6fD9gXEpQySKXJ4a7cszI0tdqxwQODfl8nHTUJPgZwV7XN",
+      "estimatedCost": 4
+    },
+    {
+      "id": "power_slide_switch",
+      "name": "Main Power Switch",
+      "pins": [
+        "Common",
+        "NO",
+        "NC"
+      ],
+      "type": "module",
+      "partId": "7c927f40-8a7d-4961-8f4a-a394e68e0b1b",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=SPDT+Slide+Switch&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/805-03.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "IN,OUT_A,OUT_B"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0FNK8B1YV?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$8.48",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005010439446242.html?pdp_npi=6%40dis%21USD%215.38%212.53%21%21%2136.50%2117.15%21%400b8ded7b17793325227973878e0ed5%2112000052414281020%21affd%21%21%21%211%210%21",
+            "price": "$2.53",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.adafruit.com/product/805",
+            "price": "$0.95",
+            "vendor": "Adafruit"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0FNRDWD4B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$4.99",
+            "vendor": "Amazon"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/805",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0FNK8B1YV?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "19x13x6mm",
+      "description": "Slide switch for overall device power control.",
+      "productName": "SPDT Slide Switch",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=SPDT+slide+switch",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxIpaI0DF2juEy3sJzRsLZHEXW4iUoe6bVnts14DbxlNOaB88TbJpQFdXDJgZhEJzF4v3GK8SNJVTa0GhpALRCXYHVp4yebpoQaBBN1Um7sAwqhxq5xvv06zWonrMHLdY9odf2xESds8TifPKHF09dX2ALbzsHynacKpFXgaVI0VKI8B5znFBbZMm26Rr1RiYFAYIKinLG9iStVQ9VvWBEec6wdR8GCBJwnQUlFF110ZM2Qo2OR6oigfzfi6LeU3j7ALeldefVb9Y6ZlFcvbex2NnCIYxOCHOH1tAwkpSvbUErwDYe7mHDqmY5EzUNG6vPU67RFrAhI0rHw0SQgrrvsZTWxK1lRLI4ImEaqUYS2yH6MsdODp5emSjyeWjsRkkKlQycV4yJMPMRw3zRfNKnwmZZSO3I9zDf5pNdPConQwfVLBX4RvRho9KgEV1IJ9ZYmu0MC7dSqQbKcf3Df5hrAN9x9zg3icxSCddWUIs88OaEL5kaB4SfDyPdhcIoxc6XwaE1gS5mTTcc7WWyjeDi0Hl4Z6BwbiTTeA2MQnPzeBabQb1cQjn5rFRCxJSWf0H6PzoxNT5LBk8pKlE79xCwNqwBG3V11pTSYtXRHBa2zVtq3os8i31qoCTFgJIjh8DnQdJKuilqQg4OqFwDNHam7mj",
+      "estimatedCost": 1
+    },
+    {
+      "id": "wifi_antenna",
+      "name": "External WiFi Antenna",
+      "pins": [
+        "SMA Male"
+      ],
+      "type": "module",
+      "partId": "f00bf7d1-ae61-4fe3-ac59-084173b6d125",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=2.4GHz+5dBi+SMA-M+Antenna&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/31KsRKnCoUL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/item/1005003008311985.html?pdp_npi=6%40dis%21USD%210.41%210.28%21%21%210.41%210.28%21%40210152bd17794342376342634e0e2c%2112000044519701773%21affd%21%21%21%211%210%21",
+            "price": "$0.28",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B00R1PA9EO?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$24.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B07V1W759Z?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B00R1PA9EO?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "110x10x10mm",
+      "productName": "2.4GHz 5dBi SMA-M Antenna",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHRWAYTk583ZtxfkpPKC5rV4Lsniweb1n3BGQBQI21vLvXmelUBGOq5vBZsVZjlswNnVVywsJBqTWDaMlHLNNrEO7ZPWcDVHHvQFB2jIcNUhqtLRMANWJ4tjK5rK29UYMshLqSoAEA4Pu0hwSuJi6UBmGIObzRTUhg5P6tsIPJP4EG8ICexkDTvnroNoR6qiZ8qm1QAwRVlZzk8oMkQGA2A5daZINR8SQX4nihDOmnPW0V9rXlXVxQwSJeRGh1i0DhRmTJPBoPr9ICBJHQRvt14aP2bsaeqkNtTOvI3nTWwWqQGU7jdmjMxpuqPSyEqVAlbMRd4iypr7YkLzYZ6daOKvBOjOowgW51h3PHvCRKMcE07yqe5LgDs11wZjVrwBvLlNHyuSPuJtdHAlhCdwzTzaNPNLUktJpBNdk2QOymWeQeq1YzSuJMPTr1NIFo7xOsVBlMtfWCyeaDDjbqO6kQmG1pBM1xHBy8PIU1FCffPc62Wx3OFZWQFehpWyoe3vWnltHRSmVqn6qLzGN94JYoZFOnB4AwLdzWsf6OXBmymbR5WBRztT2WJXEepvMgE9QuM23IMHFSIrb3dF5CoMKLiFpVcOiy7q5wkKRMRrkVF2II1JNUdX35Sf9bq3elZ2AEqB7ou35hSDNjNRvkYSEmEP",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxHRWAYTk583ZtxfkpPKC5rV4Lsniweb1n3BGQBQI21vLvXmelUBGOq5vBZsVZjlswNnVVywsJBqTWDaMlHLNNrEO7ZPWcDVHHvQFB2jIcNUhqtLRMANWJ4tjK5rK29UYMshLqSoAEA4Pu0hwSuJi6UBmGIObzRTUhg5P6tsIPJP4EG8ICexkDTvnroNoR6qiZ8qm1QAwRVlZzk8oMkQGA2A5daZINR8SQX4nihDOmnPW0V9rXlXVxQwSJeRGh1i0DhRmTJPBoPr9ICBJHQRvt14aP2bsaeqkNtTOvI3nTWwWqQGU7jdmjMxpuqPSyEqVAlbMRd4iypr7YkLzYZ6daOKvBOjOowgW51h3PHvCRKMcE07yqe5LgDs11wZjVrwBvLlNHyuSPuJtdHAlhCdwzTzaNPNLUktJpBNdk2QOymWeQeq1YzSuJMPTr1NIFo7xOsVBlMtfWCyeaDDjbqO6kQmG1pBM1xHBy8PIU1FCffPc62Wx3OFZWQFehpWyoe3vWnltHRSmVqn6qLzGN94JYoZFOnB4AwLdzWsf6OXBmymbR5WBRztT2WJXEepvMgE9QuM23IMHFSIrb3dF5CoMKLiFpVcOiy7q5wkKRMRrkVF2II1JNUdX35Sf9bq3elZ2AEqB7ou35hSDNjNRvkYSEmEP",
+      "estimatedCost": 5
+    },
+    {
+      "id": "servo_motor_head",
+      "name": "Head Movement Servo",
+      "pins": [
+        "VCC",
+        "GND",
+        "PWM"
+      ],
+      "type": "actuator",
+      "partId": "fa7c42c2-f7e1-4aac-8bc3-d33b66ad3ffc",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=SG90+Micro+Servo+Motor&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/2941-00.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,Signal"
+          },
+          {
+            "label": "weight",
+            "value": "9g"
+          },
+          {
+            "label": "gear_type",
+            "value": "Nylon gears"
+          },
+          {
+            "label": "idle_current",
+            "value": "~10mA"
+          },
+          {
+            "label": "stall_torque",
+            "value": "1.8 kg-cm"
+          },
+          {
+            "label": "stall_current",
+            "value": "Up to 360mA"
+          },
+          {
+            "label": "required_pulse",
+            "value": "3.3 ~ 5 Volt Peak to Peak Square Wave"
+          },
+          {
+            "label": "rotation_angle",
+            "value": "180 degrees (90 degrees in each direction)"
+          },
+          {
+            "label": "dimensions_lxwxh",
+            "value": "22.8mm x 12.2mm x 28.5mm"
+          },
+          {
+            "label": "operating_current",
+            "value": "100mA - 250mA"
+          },
+          {
+            "label": "operating_voltage",
+            "value": "4.8V - 6V DC"
+          },
+          {
+            "label": "working_frequency",
+            "value": "1520μs / 50hz"
+          },
+          {
+            "label": "operating_speed_6v",
+            "value": "0.13 Sec/60 Degrees"
+          },
+          {
+            "label": "operating_speed_4_8v",
+            "value": "0.15 Sec/60 Degrees"
+          }
+        ],
+        "examples": [
+          {
+            "url": "https://mschoeffler.com/2017/09/25/tutorial-how-to-control-a-servo-motor-sg90-with-the-arduino-uno/",
+            "title": "Tutorial: How to control a servo motor (SG90) with the Arduino Uno",
+            "description": "Demonstrates wiring and basic code for controlling an SG90 servo with an Arduino Uno using PWM signals."
+          },
+          {
+            "url": "https://lastminuteengineers.com/servo-motor-arduino-tutorial/",
+            "title": "How Servo Motor Works & Interface It With Arduino",
+            "description": "Provides an in-depth explanation of servo motor operation and a tutorial for interfacing the SG90 with Arduino."
+          },
+          {
+            "url": "https://arduinoexpert.com/blog/how-to-use-sg90-servo-motor-with-arduino/",
+            "title": "How to use Sg90 Servo Motor with Arduino",
+            "description": "Offers a complete tutorial with wiring diagrams, sample code, and beginner-friendly explanations for Arduino users."
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07MLR1498?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$7.98",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005007173214082.html?pdp_npi=6%40dis%21USD%212.28%212.24%21%21%2115.48%2115.20%21%402140d36117793270773366748e0de9%2112000039699110343%21affd%21%21%21%211%210%21",
+            "price": "$2.24",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.adafruit.com/product/2941",
+            "price": "$3.5",
+            "vendor": "Adafruit"
+          }
+        ],
+        "cadFileUrls": [
+          {
+            "url": "https://www.stlfinder.com/3dmodels/tower-pro-sg90/",
+            "label": "STEP file (SG90)"
+          }
+        ],
+        "alternatives": [
+          {
+            "name": "TowerPro MG90S",
+            "reason": "Metal geared version for higher durability and slightly better performance, often pin-compatible."
+          },
+          {
+            "name": "FS90 Micro Servo",
+            "reason": "A common alternative with similar size and functionality, though some variants may have a 120-degree operating angle."
+          }
+        ],
+        "datasheetUrl": "http://www.ee.ic.ac.uk/pcheung/teaching/DE1_EE/stores/sg90_datasheet.pdf",
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/2941",
+            "title": "Product Page (Adafruit)"
+          },
+          {
+            "url": "https://manuals.plus/asin/B0BB6FNF97",
+            "title": "SG90 Micro Servo Motor User Manual"
+          },
+          {
+            "url": "https://stufin.in/V/documentation_main?documentation_id=2143",
+            "title": "SG90 Micro Servo Motor Documentation (Stufin)"
+          },
+          {
+            "url": "https://robocraze.com/blogs/post/all-about-servo-motor-sg90",
+            "title": "SG90 Servo Motor – Specs, Wiring and Projects (Robocraze)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07MLR1498?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "23x12x29mm",
+      "description": "Small and lightweight servo motor, commonly used for steering in small robots.",
+      "productName": "SG90 Micro Servo Motor",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxw8lzcOrtLTvgqNE4A9PsQ5QJFVl6NB9iN4vYpDTxpNG2t32KXiyf3qgDEKKn0sisxUAZFO4HZUzwxhCMYJOIZmvTeXninPibZKyUqwCZLOxVfi2DYYXvws7lHXmNp5BNm2wfE3YzYnKJINvrrfbjDaxoYJ65CVuA8TINbg8824ohuPIVRyJy43YArl3t0neu9DjMiqI5ospebfvjUd8goIdfCq0E5fOtowaPLXnT5QDc5CbURTmiBm8FLVeWG90QtQkzKuZ2inZHxEZSEfsK1y8C4v75FQDTuxdcbOz1EGGAt98srhGZfydgo62sjYDNrlB09MU1rlCjLJiAIxOG8MNgRPIYwyS5PwvgHxAJYESzrjOIT1tdUC53torf147TPQTQgLTQyxq1zJBHKVay5xv8fBnGFfaotvcXjqBbkexeFmoRlI3Ya0Fd2DBHnECFqZYL4yMZFiXGKgtimi5UHZaR8Z96Xu76TH02IBcIFfoqNhbK3Ve8oQhhtG6CXKF6nznhfWU5D5LTARO8HTugmYNzKiWQMQw8evzbvJJYzGAzuT3elaxDg2kODRGQiIEFGiXyg9BkeMDnpg3cQTsVmNpOiH5I0017BJJUWGh5XNsTd1uppXoliOF0aOWq4MqilukoX7ovUo1w1UwtMLlKZS3",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0Jxw8lzcOrtLTvgqNE4A9PsQ5QJFVl6NB9iN4vYpDTxpNG2t32KXiyf3qgDEKKn0sisxUAZFO4HZUzwxhCMYJOIZmvTeXninPibZKyUqwCZLOxVfi2DYYXvws7lHXmNp5BNm2wfE3YzYnKJINvrrfbjDaxoYJ65CVuA8TINbg8824ohuPIVRyJy43YArl3t0neu9DjMiqI5ospebfvjUd8goIdfCq0E5fOtowaPLXnT5QDc5CbURTmiBm8FLVeWG90QtQkzKuZ2inZHxEZSEfsK1y8C4v75FQDTuxdcbOz1EGGAt98srhGZfydgo62sjYDNrlB09MU1rlCjLJiAIxOG8MNgRPIYwyS5PwvgHxAJYESzrjOIT1tdUC53torf147TPQTQgLTQyxq1zJBHKVay5xv8fBnGFfaotvcXjqBbkexeFmoRlI3Ya0Fd2DBHnECFqZYL4yMZFiXGKgtimi5UHZaR8Z96Xu76TH02IBcIFfoqNhbK3Ve8oQhhtG6CXKF6nznhfWU5D5LTARO8HTugmYNzKiWQMQw8evzbvJJYzGAzuT3elaxDg2kODRGQiIEFGiXyg9BkeMDnpg3cQTsVmNpOiH5I0017BJJUWGh5XNsTd1uppXoliOF0aOWq4MqilukoX7ovUo1w1UwtMLlKZS3",
+      "estimatedCost": 3
+    },
+    {
+      "id": "servo_motor_wing_left_inner",
+      "name": "Left Wing Inner Joint Servo",
+      "pins": [
+        "VCC",
+        "GND",
+        "PWM"
+      ],
+      "type": "actuator",
+      "partId": "6e10c558-a93d-428e-b0f5-c9688dd930e4",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=MG996R+Digital+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41vK0XrtSjL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,PWM"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$17.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008479720537.html?pdp_npi=6%40dis%21USD%2113.83%216.64%21%21%2193.52%2144.89%21%40212a7b8d17793627089845854e1142%2112000045329054319%21affd%21%21%21%211%210%21",
+            "price": "$6.64",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "40x20x43mm",
+      "description": "Standard servo motor for precise steering control of the RC car.",
+      "productName": "MG996R Digital Servo",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "estimatedCost": 10
+    },
+    {
+      "id": "servo_motor_wing_left_outer",
+      "name": "Left Wing Outer Joint Servo",
+      "pins": [
+        "VCC",
+        "GND",
+        "PWM"
+      ],
+      "type": "actuator",
+      "partId": "6e10c558-a93d-428e-b0f5-c9688dd930e4",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=MG996R+Digital+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41vK0XrtSjL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,PWM"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$17.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008479720537.html?pdp_npi=6%40dis%21USD%2113.83%216.64%21%21%2193.52%2144.89%21%40212a7b8d17793627089845854e1142%2112000045329054319%21affd%21%21%21%211%210%21",
+            "price": "$6.64",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "40x20x43mm",
+      "description": "Standard servo motor for precise steering control of the RC car.",
+      "productName": "MG996R Digital Servo",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "estimatedCost": 10
+    },
+    {
+      "id": "servo_motor_wing_right_inner",
+      "name": "Right Wing Inner Joint Servo",
+      "pins": [
+        "VCC",
+        "GND",
+        "PWM"
+      ],
+      "type": "actuator",
+      "partId": "6e10c558-a93d-428e-b0f5-c9688dd930e4",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=MG996R+Digital+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41vK0XrtSjL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,PWM"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$17.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008479720537.html?pdp_npi=6%40dis%21USD%2113.83%216.64%21%21%2193.52%2144.89%21%40212a7b8d17793627089845854e1142%2112000045329054319%21affd%21%21%21%211%210%21",
+            "price": "$6.64",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "40x20x43mm",
+      "description": "Standard servo motor for precise steering control of the RC car.",
+      "productName": "MG996R Digital Servo",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "estimatedCost": 10
+    },
+    {
+      "id": "servo_motor_wing_right_outer",
+      "name": "Right Wing Outer Joint Servo",
+      "pins": [
+        "VCC",
+        "GND",
+        "PWM"
+      ],
+      "type": "actuator",
+      "partId": "6e10c558-a93d-428e-b0f5-c9688dd930e4",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=MG996R+Digital+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/41vK0XrtSjL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VCC,GND,PWM"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$17.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008479720537.html?pdp_npi=6%40dis%21USD%2113.83%216.64%21%21%2193.52%2144.89%21%40212a7b8d17793627089845854e1142%2112000045329054319%21affd%21%21%21%211%210%21",
+            "price": "$6.64",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B07MFK266B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "40x20x43mm",
+      "description": "Standard servo motor for precise steering control of the RC car.",
+      "productName": "MG996R Digital Servo",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxwYtuD00CeqyL4fYzBCf5UmGAEbHxZR91do1tAIjoTYhPsEzmfwBnUs2DZE6wQqp2s81OJkgADIAsP2R6X7JTol0AnYzuByVTqCIbKi0GMtsbP4IAT7TxuHKPenbeL62kaRrpEwkPEgA60V1M76DfF8EZonXt2npWfHJVDIkjSdtPTGkAj1WKIEO2fEABABp6GzqD5Zm0wUOSoTz9unCNbFFnDTsnt4xYH9OcuHjCgmU1N49YTRGFDNp5TFvKZ59aJi9MvzppVqJl3l6iEvc1ApJvA149ihth5d0P7zIsopxbgzv85STIVao1z5xrS4421emHb08hO72TmZF0Xuiuk7J27M9YLxjoNEZGrwQavAZtygXi96Bk6ZITLBa4VI9gNKkyYpTRwoFZ1LCWTU2higtn09YNdDCOAmTFihKUEgvsaO86Kvvb2XXdu3uni7BNHzljpXeNJbhsIQb1uyu76LszXJV94hHzt1qPWxmlBkqxkjVREzsybXDtHDpOGR4qysnxRNPqpWBqJCDT5bZZNEsm24vuHaoneNwuS4StKItvwWhcSI5MxxMk9nxSPdvTO7AeRrU3sBnVwzLVKXtB3AgBixKEcKpY0LV5qsMMu56EfPdDJfNGgtjCHbHYfAr1GHFzAlkWpXICorUcYvmqXS7",
+      "estimatedCost": 10
+    },
+    {
+      "id": "audio_amplifier_module",
+      "name": "Speaker Amplifier",
+      "pins": [
+        "VCC",
+        "GND",
+        "Audio In L",
+        "Audio In R",
+        "SPK Out L",
+        "SPK Out R"
+      ],
+      "type": "module",
+      "partId": "7b787d34-b517-45fb-b69b-a0ff0f41b0ba",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=PAM8403+Mini+5V+Audio+Amplifier&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "electrical",
+      "imageUrl": "https://m.media-amazon.com/images/I/51n-m9wFpDL._SL500_.jpg",
+      "quantity": 1,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B00LODGV64?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$5.69",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/item/1005008660394200.html?pdp_npi=6%40dis%21USD%215.41%212.54%21%21%2136.56%2117.18%21%40210152bd17793446734033711e105c%2112000057745753349%21affd%21%21%21%211%210%21",
+            "price": "$2.54",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0DPMNYR2B?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$6.99",
+            "vendor": "Amazon"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B00LODGV64?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "21x19x3mm",
+      "description": "Amplifies audio signal from ESP32 for the speaker.",
+      "productName": "PAM8403 Mini 5V Audio Amplifier",
+      "purchaseUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxQJC6zOOIfRLmo0Si8Z6DbOnzRJ5tAJH58zrRV8Jz7RKAm6onXOFrQM7DMa3ZV02AYKSdEADUGNayYHX5kMCr7peUN7VeZpfIyX1ui090bxSCoBIHZneEerElkmrq3XW6nN3bVTucqTSc1hU5TrLZxtyfInyPxIjBW2fblLPgBQ9VrOK4decJQotQ8SMkgl2xSs6dcpCUDntEz0hzZw3T6IYdBqhkvOgptqhfebIGSqnlXzldF8pijCOwfZGMAvpVEXJZx0NlnyXyUQZlRL49N1I8vVeQyt7xCu8XlzyrMONPNxGyGmLJk1KgtD7P1025GGG0KCvUEWy2pda7wKHHCB9CYwrfC7Ra4yqhoswpq1mmyRZLerZtBjSfkZDvvMFx1Qip1Y4bhJa3W35pSapSt7XVFBi5f2xCCVyOb0Q0YWL7sMbAsAC3HFTEp8HGNEE3JApWmBhgwF8IcKOv1ZjlkXDEaMMZoIuhpeCbpdTTEUA15606qKZWhiYw8gvjM2QWnVUnJZIoUPnyIW7iNzh2ji1vESfgM9miFIi1T7ZlZfKORIUXFarS7pjgc9dVYUv3YVCo5rPowBdejEXfUv6MF6rhf3XwIGf56I9WlGNIbh8nVfneetmnDdQzW9unkStq1c5gMlTnWLzjn4ucnrvaInv",
+      "aliexpressUrl": "https://s.click.aliexpress.com/s/fwx308cRD9Eny963e3KDdYxyIpNj8TXVr7saiF9Um5rMUg1kZtJALLnfa2LNXtiVgnxdD8Og6MmvwBoxhnSYQGM6r0c08U4TfX8DFGo7vviCuu3q62Q60OAhRZcqm3G8PtwM69xY7TOEWRrvulP5ukZQ4uQbBBtaVsdr6EffAqVmp3O5GyUANU2DoA3dJufNhDfh7KOlLgKIvRVhDxRESHLmea6fTE26gLUqKEUuuizJiLENrCbax94DZHDu8WhaXM9vQ86gzlqceNPO5w3vwXm4VrBF3x2lAMEl06wgNdTSMiT7cNG4HIdW0JxQJC6zOOIfRLmo0Si8Z6DbOnzRJ5tAJH58zrRV8Jz7RKAm6onXOFrQM7DMa3ZV02AYKSdEADUGNayYHX5kMCr7peUN7VeZpfIyX1ui090bxSCoBIHZneEerElkmrq3XW6nN3bVTucqTSc1hU5TrLZxtyfInyPxIjBW2fblLPgBQ9VrOK4decJQotQ8SMkgl2xSs6dcpCUDntEz0hzZw3T6IYdBqhkvOgptqhfebIGSqnlXzldF8pijCOwfZGMAvpVEXJZx0NlnyXyUQZlRL49N1I8vVeQyt7xCu8XlzyrMONPNxGyGmLJk1KgtD7P1025GGG0KCvUEWy2pda7wKHHCB9CYwrfC7Ra4yqhoswpq1mmyRZLerZtBjSfkZDvvMFx1Qip1Y4bhJa3W35pSapSt7XVFBi5f2xCCVyOb0Q0YWL7sMbAsAC3HFTEp8HGNEE3JApWmBhgwF8IcKOv1ZjlkXDEaMMZoIuhpeCbpdTTEUA15606qKZWhiYw8gvjM2QWnVUnJZIoUPnyIW7iNzh2ji1vESfgM9miFIi1T7ZlZfKORIUXFarS7pjgc9dVYUv3YVCo5rPowBdejEXfUv6MF6rhf3XwIGf56I9WlGNIbh8nVfneetmnDdQzW9unkStq1c5gMlTnWLzjn4ucnrvaInv",
+      "estimatedCost": 2
+    },
+    {
+      "id": "head_left_half",
+      "name": "Head Left Half",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "80x70x60mm",
+      "description": "Left half of the eagle's head, hollow for electronics and designed for camera and LED mounts.",
+      "estimatedCost": 2.5,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "head_right_half",
+      "name": "Head Right Half",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "80x70x60mm",
+      "description": "Right half of the eagle's head, hollow for electronics and designed for microphone and wiring.",
+      "estimatedCost": 2.5,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "upper_body_shell",
+      "name": "Upper Body Shell",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "250x150x100mm",
+      "description": "Top section of the eagle's body, providing an outer aesthetic and structural integrity. Houses main electronics.",
+      "estimatedCost": 8,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "lower_body_shell",
+      "name": "Lower Body Shell",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "250x150x80mm",
+      "description": "Bottom section of the eagle's body, designed to connect to the base and provide access for battery and electronics.",
+      "estimatedCost": 7.5,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "left_wing",
+      "name": "Left Wing",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "300x120x30mm",
+      "description": "Full left wing assembly, hollowed for optional servo motors and wiring, designed for articulation.",
+      "estimatedCost": 6,
+      "printSettings": "15% infill, 0.2mm layer"
+    },
+    {
+      "id": "right_wing",
+      "name": "Right Wing",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "300x120x30mm",
+      "description": "Full right wing assembly, hollowed for optional servo motors and wiring, designed for articulation.",
+      "estimatedCost": 6,
+      "printSettings": "15% infill, 0.2mm layer"
+    },
+    {
+      "id": "tail_section",
+      "name": "Tail Section",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "120x80x50mm",
+      "description": "Rear tail feathers section, aesthetically completing the eagle and providing structural support.",
+      "estimatedCost": 3,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "base_and_legs",
+      "name": "Base and Legs",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "150x120x150mm",
+      "description": "Integrated base and leg structure for stability and mounting the main body.",
+      "estimatedCost": 5,
+      "printSettings": "30% infill, 0.2mm layer"
+    },
+    {
+      "id": "battery_door",
+      "name": "Battery Compartment Door",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "dimensions": "85x55x5mm",
+      "description": "Removable access panel for the battery compartment, integrated into the lower body shell.",
+      "estimatedCost": 0.5,
+      "printSettings": "100% infill, 0.2mm layer"
+    },
+    {
+      "id": "rp_5_mount",
+      "name": "Raspberry Pi 5 Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "raspberry_pi_5",
+      "dimensions": "85x56x10mm",
+      "description": "Custom bracket to securely mount the Raspberry Pi 5 inside the main body compartment.",
+      "estimatedCost": 0.75,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "esp32_mount",
+      "name": "ESP32 Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "esp32_microcontroller",
+      "dimensions": "55x30x8mm",
+      "description": "Custom bracket to mount the ESP32 microcontroller inside the main body compartment.",
+      "estimatedCost": 0.5,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "camera_module_mount",
+      "name": "RPi Camera Module Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "raspberry_pi_camera_module_3",
+      "dimensions": "25x25x15mm",
+      "description": "Mounting bracket for the Raspberry Pi Camera Module, positioned in the head.",
+      "estimatedCost": 0.25,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "pir_sensor_mount",
+      "name": "PIR Sensor Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "pir_motion_sensor",
+      "dimensions": "28x28x20mm",
+      "description": "Mount for the PIR motion sensor, designed for optimal detection angle.",
+      "estimatedCost": 0.2,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "microphone_mount",
+      "name": "Microphone Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "microphone",
+      "dimensions": "15x15x10mm",
+      "description": "Small bracket to secure the microphone in the head cavity.",
+      "estimatedCost": 0.15,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "speaker_mount",
+      "name": "Speaker Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "speaker",
+      "dimensions": "40x40x20mm",
+      "description": "Housing/mount for the speaker, ensuring clear sound output.",
+      "estimatedCost": 0.4,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "led_eye_right_mount",
+      "name": "Right Eye LED Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "led_eye_right",
+      "dimensions": "10x10x5mm",
+      "description": "Mount for the right eye LED, integrated into the head design.",
+      "estimatedCost": 0.05,
+      "printSettings": "100% infill, 0.2mm layer"
+    },
+    {
+      "id": "led_eye_left_mount",
+      "name": "Left Eye LED Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "led_eye_left",
+      "dimensions": "10x10x5mm",
+      "description": "Mount for the left eye LED, integrated into the head design.",
+      "estimatedCost": 0.05,
+      "printSettings": "100% infill, 0.2mm layer"
+    },
+    {
+      "id": "battery_18650_tray",
+      "name": "18650 Battery Tray",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "battery_18650_1",
+      "dimensions": "70x40x20mm",
+      "description": "Tray to hold two 18650 batteries securely in the battery compartment.",
+      "estimatedCost": 0.6,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "tp4056_mount",
+      "name": "TP4056 Module Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "tp4056_charging_module",
+      "dimensions": "28x18x8mm",
+      "description": "Bracket for mounting the TP4056 charging module.",
+      "estimatedCost": 0.15,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "voltage_regulator_mount",
+      "name": "Voltage Regulator Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "buck_boost_converter",
+      "dimensions": "45x25x10mm",
+      "description": "Mount for the buck/boost converter, securing it within the electronics compartment.",
+      "estimatedCost": 0.2,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "cooling_fan_duct",
+      "name": "Cooling Fan Duct/Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "cooling_fan",
+      "dimensions": "30x30x10mm",
+      "description": "Housing and duct for the cooling fan, directing airflow over critical components.",
+      "estimatedCost": 0.3,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "power_switch_mount",
+      "name": "Power Switch Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "power_slide_switch",
+      "dimensions": "20x10x5mm",
+      "description": "Bracket or bezel for mounting the power slide switch.",
+      "estimatedCost": 0.1,
+      "printSettings": "100% infill, 0.2mm layer"
+    },
+    {
+      "id": "wifi_antenna_mount",
+      "name": "WiFi Antenna Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "wifi_antenna",
+      "dimensions": "15x15x8mm",
+      "description": "Small mount to secure the external WiFi antenna, possibly routed outside or near an opening.",
+      "estimatedCost": 0.1,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "audio_amplifier_mount",
+      "name": "Audio Amplifier Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 1,
+      "mountsFor": "audio_amplifier_module",
+      "dimensions": "30x25x8mm",
+      "description": "Mount for the audio amplifier module.",
+      "estimatedCost": 0.15,
+      "printSettings": "20% infill, 0.2mm layer"
+    },
+    {
+      "id": "head_servo_mount",
+      "name": "Head Servo Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "servo_motor_head",
+      "dimensions": "35x20x15mm",
+      "description": "Mounting bracket for the head movement servo, integrated into the head/body connection.",
+      "estimatedCost": 0.3,
+      "printSettings": "30% infill, 0.2mm layer"
+    },
+    {
+      "id": "left_wing_inner_servo_mount",
+      "name": "Left Wing Inner Servo Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_left_inner",
+      "dimensions": "35x20x15mm",
+      "description": "Mount for the inner joint servo of the left wing, allowing articulation.",
+      "estimatedCost": 0.3,
+      "printSettings": "30% infill, 0.2mm layer"
+    },
+    {
+      "id": "left_wing_outer_servo_mount",
+      "name": "Left Wing Outer Servo Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_left_outer",
+      "dimensions": "30x18x12mm",
+      "description": "Mount for the outer joint servo of the left wing, allowing articulation.",
+      "estimatedCost": 0.25,
+      "printSettings": "30% infill, 0.2mm layer"
+    },
+    {
+      "id": "right_wing_inner_servo_mount",
+      "name": "Right Wing Inner Servo Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_right_inner",
+      "dimensions": "35x20x15mm",
+      "description": "Mount for the inner joint servo of the right wing, allowing articulation.",
+      "estimatedCost": 0.3,
+      "printSettings": "30% infill, 0.2mm layer"
+    },
+    {
+      "id": "right_wing_outer_servo_mount",
+      "name": "Right Wing Outer Servo Mount",
+      "type": "3d_printed",
+      "category": "mechanical",
+      "material": "PETG",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_right_outer",
+      "dimensions": "30x18x12mm",
+      "description": "Mount for the outer joint servo of the right wing, allowing articulation.",
+      "estimatedCost": 0.25,
+      "printSettings": "30% infill, 0.2mm layer"
+    },
+    {
+      "id": "m3_brass_heat_set_inserts",
+      "name": "M3 Brass Heat-Set Inserts",
+      "type": "misc",
+      "partId": "10036330-c240-41de-95b5-bc5976ff30bc",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=M3x4mm+Brass+Heat+Set+Inserts&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://cdn-shop.adafruit.com/640x480/4255-02.jpg",
+      "quantity": 50,
+      "research": {
+        "sourcing": [
+          {
+            "url": "https://www.aliexpress.com/w/wholesale-m3x4mm-brass-heat-set-inserts.html",
+            "vendor": "AliExpress"
+          },
+          {
+            "url": "https://www.amazon.com/dp/B0DG59PW2R?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$9.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.adafruit.com/product/4255",
+            "price": "$5.95",
+            "vendor": "Adafruit"
+          }
+        ],
+        "documentationUrls": [
+          {
+            "url": "https://www.adafruit.com/product/4255",
+            "title": "Product Page (Adafruit)"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0DG59PW2R?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "M3x4mm",
+      "description": "Threaded inserts for securing screws into 3D printed parts without stripping plastic.",
+      "productName": "M3x4mm Brass Heat Set Inserts",
+      "purchaseUrl": "https://www.adafruit.com/product/4255",
+      "aliexpressUrl": "https://s.click.aliexpress.com/e/_c4dePa0l",
+      "estimatedCost": 0.05
+    },
+    {
+      "id": "m3_pan_head_screws",
+      "name": "M3 Pan Head Screws",
+      "type": "misc",
+      "partId": "a3e4c127-d01a-4e43-a7af-f14e979d061c",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=M3x10mm+Pan+Head+Screws&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "imageUrl": "https://m.media-amazon.com/images/I/313i8J8nZxL._SL500_.jpg",
+      "quantity": 40,
+      "research": {
+        "specs": [
+          {
+            "label": "head_type",
+            "value": "Pan Head"
+          },
+          {
+            "label": "length_mm",
+            "value": "10"
+          },
+          {
+            "label": "thread_size",
+            "value": "M3"
+          }
+        ],
+        "sourcing": [
+          {
+            "url": "https://www.amazon.com/dp/B0GC3CD86G?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+            "price": "$5.99",
+            "vendor": "Amazon"
+          },
+          {
+            "url": "https://www.aliexpress.com/w/wholesale-m3x10mm-pan-head-screws.html",
+            "vendor": "AliExpress"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/dp/B0GC3CD86G?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "dimensions": "M3x10mm",
+      "description": "General purpose screws for assembling 3D printed parts and mounting components.",
+      "productName": "M3x10mm Pan Head Screws",
+      "purchaseUrl": "https://www.amazon.com/dp/B0GC3CD86G?tag=blueprintam-20&linkCode=osi&th=1&psc=1",
+      "aliexpressUrl": "https://s.click.aliexpress.com/e/_c3UwM5U1",
+      "estimatedCost": 0.03
+    },
+    {
+      "id": "micro_servo_mg90s_head",
+      "name": "Head Movement Servo",
+      "type": "mechanism",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=TowerPro+MG90S+Micro+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "quantity": 1,
+      "mountsFor": "servo_motor_head",
+      "dimensions": "23x12x29mm",
+      "description": "Metal gear micro servo for controlling the eagle's head movement.",
+      "productName": "TowerPro MG90S Micro Servo",
+      "purchaseUrl": "https://www.amazon.com/s?k=mg90s+micro+servo",
+      "estimatedCost": 4.5
+    },
+    {
+      "id": "mini_servo_mg996r_wing_li",
+      "name": "Left Wing Inner Joint Servo",
+      "type": "mechanism",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=TowerPro+MG996R+Digital+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_left_inner",
+      "dimensions": "40x20x43mm",
+      "description": "Standard digital servo with metal gears for powerful inner wing articulation.",
+      "productName": "TowerPro MG996R Digital Servo",
+      "purchaseUrl": "https://www.amazon.com/s?k=mg996r+digital+servo",
+      "estimatedCost": 7
+    },
+    {
+      "id": "mini_servo_mg996r_wing_ri",
+      "name": "Right Wing Inner Joint Servo",
+      "type": "mechanism",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=TowerPro+MG996R+Digital+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_right_inner",
+      "dimensions": "40x20x43mm",
+      "description": "Standard digital servo with metal gears for powerful inner wing articulation.",
+      "productName": "TowerPro MG996R Digital Servo",
+      "purchaseUrl": "https://www.amazon.com/s?k=mg996r+digital+servo",
+      "estimatedCost": 7
+    },
+    {
+      "id": "micro_servo_mg90s_wing_lo",
+      "name": "Left Wing Outer Joint Servo",
+      "type": "mechanism",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=TowerPro+MG90S+Micro+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_left_outer",
+      "dimensions": "23x12x29mm",
+      "description": "Metal gear micro servo for delicate outer wing articulation.",
+      "productName": "TowerPro MG90S Micro Servo",
+      "purchaseUrl": "https://www.amazon.com/s?k=mg90s+micro+servo",
+      "estimatedCost": 4.5
+    },
+    {
+      "id": "micro_servo_mg90s_wing_ro",
+      "name": "Right Wing Outer Joint Servo",
+      "type": "mechanism",
+      "ebayUrl": "https://www.ebay.com/sch/i.html?_nkw=TowerPro+MG90S+Micro+Servo&_sacat=0&_from=R40&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339153059&customid=blueprint&toolid=10001&mkevt=1",
+      "category": "mechanical",
+      "quantity": 1,
+      "mountsFor": "servo_motor_wing_right_outer",
+      "dimensions": "23x12x29mm",
+      "description": "Metal gear micro servo for delicate outer wing articulation.",
+      "productName": "TowerPro MG90S Micro Servo",
+      "purchaseUrl": "https://www.amazon.com/s?k=mg90s+micro+servo",
+      "estimatedCost": 4.5
+    }
+  ],
+  "notes": [
+    "Realistic bald eagle appearance",
+    "Intelligent surveillance system",
+    "3D printed PLA/PETG",
+    "Hidden electronics design",
+    "Hollow body for components",
+    "45 cm overall height"
+  ],
+  "projectName": "Aegis Eagle",
+  "originalPrompt": "Act as an expert robotics engineer, mechanical designer, electronics engineer, and AI developer.\n\nI want to build a full-scale \"Eagle Security Robot\" inspired by a realistic Bald Eagle. The robot should function as an intelligent surveillance and security system while maintaining the appearance of a real eagle.\n\nPROJECT NAME:\nAegis Eagle – AI Security Robot\n\n=====================\nGENERAL SPECIFICATIONS\n=====================\n\nOverall height: 45 cm\nBody length: 25 cm\nWingspan: 60 cm\n3D printed body using PLA or PETG.\nThe entire body should be hollow and designed to house electronics.\n\n=====================\n3D MODEL REQUIREMENTS\n=====================\n\nDesign the robot in separate printable parts:\n\n1. Head (Left and Right halves)\n2. Upper Body Shell\n3. Lower Body Shell\n4. Left Wing\n5. Right Wing\n6. Tail Section\n7. Base and Legs\n8. Battery Door\n9. Electronics Mounting Brackets\n\nWall thickness:\n3–4 mm.\n\nAdd:\n- Screw holes\n- Wire channels\n- Ventilation holes\n- Mounting points\n- Removable access panels\n\n=====================\nINTERNAL COMPONENTS\n=====================\n\nInclude compartments for:\n\n1. Raspberry Pi 5\n2. ESP32\n3. Raspberry Pi Camera Module\n4. PIR Motion Sensor\n5. Microphone\n6. Speaker\n7. LED Eagle Eyes\n8. Two 18650 batteries\n9. TP4056 charging module\n10. Voltage regulator\n11. Cooling fan\n12. Power switch\n13. WiFi antenna\n\n=====================\nINTERNAL DIMENSIONS\n=====================\n\nMain electronics compartment:\n\nLength: 18 cm\nWidth: 11 cm\nHeight: 11 cm\n\nBattery compartment:\n\nLength: 8 cm\nWidth: 5 cm\nHeight: 3 cm\n\nHead compartment:\n\nCamera mount\nLED mount\nMicrophone mount\n\nWing compartments:\n\nSpace for optional servo motors.\n\n=====================\nROBOT FEATURES\n=====================\n\nThe eagle robot should be capable of:\n\n- Motion detection\n- Human detection\n- Face recognition\n- Live video streaming\n- Mobile alerts\n- Recording video\n- Warning voice announcements\n- Night vision LEDs\n- Head movement\n- Optional wing movement\n\n=====================\nAI FEATURES\n=====================\n\nUse:\n- Python\n- OpenCV\n- TensorFlow Lite\n- Flask Web Server\n- Mobile App Dashboard\n\nThe robot should:\n\n1. Detect intruders.\n2. Send notifications.\n3. Save recordings.\n4. Stream camera feed.\n5. Play warning messages.\n\n=====================\nBLUEPRINT REQUIREMENTS\n=====================\n\nGenerate:\n\n1. Orthographic views\n   - Front\n   - Side\n   - Top\n   - Bottom\n   - Exploded view\n\n2. Internal component layout.\n\n3. Electronics wiring diagram.\n\n4. Mechanical assembly diagram.\n\n5. Dimensions of every component.\n\n6. Bill of materials.\n\n7. Estimated weight.\n\n8. Estimated battery life.\n\n9. STL-ready part breakdown.\n\n10. Step-by-step assembly instructions.\n\n=====================\nDESIGN STYLE\n=====================\n\nCreate a realistic bald eagle appearance with hidden electronics.\n\nThe robot should look like a decorative eagle statue during the day and become an intelligent security robot at night.\n\nGenerate engineering drawings and a complete manufacturing blueprint suitable for 3D printing and prototyping.",
+  "instructionSteps": [
+    {
+      "id": "fabricate",
+      "subSteps": [
+        {
+          "id": "fabricate_1",
+          "title": "Print all 3D mechanical components and mounts",
+          "partIds": [
+            "head_left_half",
+            "head_right_half",
+            "upper_body_shell",
+            "lower_body_shell",
+            "left_wing",
+            "right_wing",
+            "tail_section",
+            "base_and_legs",
+            "battery_door",
+            "rp_5_mount",
+            "esp32_mount",
+            "camera_module_mount",
+            "pir_sensor_mount",
+            "microphone_mount",
+            "speaker_mount",
+            "led_eye_right_mount",
+            "led_eye_left_mount",
+            "battery_18650_tray",
+            "tp4056_mount",
+            "voltage_regulator_mount",
+            "cooling_fan_duct",
+            "power_switch_mount",
+            "wifi_antenna_mount",
+            "audio_amplifier_mount",
+            "head_servo_mount",
+            "left_wing_inner_servo_mount",
+            "left_wing_outer_servo_mount",
+            "right_wing_inner_servo_mount",
+            "right_wing_outer_servo_mount"
+          ]
+        },
+        {
+          "id": "fabricate_2",
+          "title": "Install M3 brass heat-set inserts into all designated mounting points",
+          "partIds": [
+            "m3_brass_heat_set_inserts",
+            "head_left_half",
+            "head_right_half",
+            "upper_body_shell",
+            "lower_body_shell",
+            "rp_5_mount",
+            "esp32_mount",
+            "pir_sensor_mount",
+            "speaker_mount",
+            "battery_18650_tray",
+            "tp4056_mount",
+            "voltage_regulator_mount",
+            "cooling_fan_duct",
+            "power_switch_mount",
+            "wifi_antenna_mount",
+            "audio_amplifier_mount",
+            "head_servo_mount",
+            "left_wing_inner_servo_mount",
+            "left_wing_outer_servo_mount",
+            "right_wing_inner_servo_mount",
+            "right_wing_outer_servo_mount"
+          ]
+        },
+        {
+          "id": "fabricate_3",
+          "title": "Mount eye LEDs, camera, PIR sensor, microphone, and speaker into their respective 3D printed mounts",
+          "partIds": [
+            "led_eye_right",
+            "led_eye_left",
+            "raspberry_pi_camera_module_3",
+            "pir_motion_sensor",
+            "microphone",
+            "speaker",
+            "led_eye_right_mount",
+            "led_eye_left_mount",
+            "camera_module_mount",
+            "pir_sensor_mount",
+            "microphone_mount",
+            "speaker_mount"
+          ]
+        },
+        {
+          "id": "fabricate_4",
+          "title": "Mount Raspberry Pi 5, ESP32, TP4056 module, voltage regulator, cooling fan, power switch, WiFi antenna, and audio amplifier to their dedicated 3D printed mounts",
+          "partIds": [
+            "raspberry_pi_5",
+            "esp32_microcontroller",
+            "tp4056_charging_module",
+            "buck_boost_converter",
+            "cooling_fan",
+            "power_slide_switch",
+            "wifi_antenna",
+            "audio_amplifier_module",
+            "rp_5_mount",
+            "esp32_mount",
+            "tp4056_mount",
+            "voltage_regulator_mount",
+            "cooling_fan_duct",
+            "power_switch_mount",
+            "wifi_antenna_mount",
+            "audio_amplifier_mount"
+          ]
+        },
+        {
+          "id": "fabricate_5",
+          "title": "Attach all servo motors to their specific 3D printed mounts",
+          "partIds": [
+            "servo_motor_head",
+            "servo_motor_wing_left_inner",
+            "servo_motor_wing_left_outer",
+            "servo_motor_wing_right_inner",
+            "servo_motor_wing_right_outer",
+            "head_servo_mount",
+            "left_wing_inner_servo_mount",
+            "left_wing_outer_servo_mount",
+            "right_wing_inner_servo_mount",
+            "right_wing_outer_servo_mount"
+          ]
+        },
+        {
+          "id": "fabricate_6",
+          "title": "Insert 18650 batteries into the battery tray",
+          "partIds": [
+            "battery_18650_1",
+            "battery_18650_2",
+            "battery_18650_tray"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wire",
+      "subSteps": [
+        {
+          "id": "wire_1",
+          "title": "Connect 18650 batteries in series to the TP4056 charging module and to the power slide switch",
+          "partIds": [
+            "battery_18650_1",
+            "battery_18650_2",
+            "tp4056_charging_module",
+            "power_slide_switch"
+          ]
+        },
+        {
+          "id": "wire_2",
+          "title": "Wire the power slide switch output to the buck-boost converter input",
+          "partIds": [
+            "power_slide_switch",
+            "buck_boost_converter"
+          ]
+        },
+        {
+          "id": "wire_3",
+          "title": "Connect the buck-boost converter output to the Raspberry Pi 5, ESP32, PIR sensor, microphone, cooling fan, audio amplifier module, and all servo motors",
+          "partIds": [
+            "buck_boost_converter",
+            "raspberry_pi_5",
+            "esp32_microcontroller",
+            "pir_motion_sensor",
+            "microphone",
+            "cooling_fan",
+            "audio_amplifier_module",
+            "servo_motor_head",
+            "servo_motor_wing_left_inner",
+            "servo_motor_wing_left_outer",
+            "servo_motor_wing_right_inner",
+            "servo_motor_wing_right_outer"
+          ]
+        },
+        {
+          "id": "wire_4",
+          "title": "Connect the Raspberry Pi Camera Module 3 to the Raspberry Pi 5 MIPI CSI port",
+          "partIds": [
+            "raspberry_pi_5",
+            "raspberry_pi_camera_module_3"
+          ]
+        },
+        {
+          "id": "wire_5",
+          "title": "Wire Raspberry Pi 5 UART to ESP32 UART (TX/RX cross-connection)",
+          "partIds": [
+            "raspberry_pi_5",
+            "esp32_microcontroller"
+          ]
+        },
+        {
+          "id": "wire_6",
+          "title": "Connect the cooling fan PWM input to Raspberry Pi 5 GPIO, and the PIR motion sensor output and microphone analog output to ESP32 GPIO pins",
+          "partIds": [
+            "raspberry_pi_5",
+            "cooling_fan",
+            "esp32_microcontroller",
+            "pir_motion_sensor",
+            "microphone"
+          ]
+        },
+        {
+          "id": "wire_7",
+          "title": "Connect eye LEDs and all servo motor PWM inputs to designated ESP32 GPIO pins",
+          "partIds": [
+            "esp32_microcontroller",
+            "led_eye_right",
+            "led_eye_left",
+            "servo_motor_head",
+            "servo_motor_wing_left_inner",
+            "servo_motor_wing_left_outer",
+            "servo_motor_wing_right_inner",
+            "servo_motor_wing_right_outer"
+          ]
+        },
+        {
+          "id": "wire_8",
+          "title": "Wire Raspberry Pi 5 I2S output to the audio amplifier module input, and connect the amplifier output to the speaker",
+          "partIds": [
+            "raspberry_pi_5",
+            "audio_amplifier_module",
+            "speaker"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bringup",
+      "subSteps": [
+        {
+          "id": "bringup_1",
+          "title": "Verify power distribution and voltage levels from buck-boost converter to all components using a multimeter",
+          "partIds": [
+            "buck_boost_converter",
+            "raspberry_pi_5",
+            "esp32_microcontroller",
+            "pir_motion_sensor",
+            "microphone",
+            "cooling_fan",
+            "audio_amplifier_module",
+            "servo_motor_head",
+            "servo_motor_wing_left_inner",
+            "servo_motor_wing_left_outer",
+            "servo_motor_wing_right_inner",
+            "servo_motor_wing_right_outer"
+          ]
+        },
+        {
+          "id": "bringup_2",
+          "title": "Flash ESP32 with initial firmware for GPIO control and communication with RPi5, and test eye LED functionality",
+          "partIds": [
+            "esp32_microcontroller",
+            "led_eye_right",
+            "led_eye_left"
+          ]
+        },
+        {
+          "id": "bringup_3",
+          "title": "Install Raspberry Pi OS on RPi5, enable camera, I2S, and UART interfaces, and test camera video feed",
+          "partIds": [
+            "raspberry_pi_5",
+            "raspberry_pi_camera_module_3"
+          ]
+        },
+        {
+          "id": "bringup_4",
+          "title": "Develop and test basic Python scripts on RPi5 to communicate with ESP32 via UART, and control the cooling fan",
+          "partIds": [
+            "raspberry_pi_5",
+            "esp32_microcontroller",
+            "cooling_fan"
+          ]
+        },
+        {
+          "id": "bringup_5",
+          "title": "Test PIR motion sensor and microphone input on ESP32, and verify data transfer to RPi5",
+          "partIds": [
+            "esp32_microcontroller",
+            "pir_motion_sensor",
+            "microphone",
+            "raspberry_pi_5"
+          ]
+        },
+        {
+          "id": "bringup_6",
+          "title": "Test audio playback through RPi5 I2S to audio amplifier and speaker",
+          "partIds": [
+            "raspberry_pi_5",
+            "audio_amplifier_module",
+            "speaker"
+          ]
+        },
+        {
+          "id": "bringup_7",
+          "title": "Develop and test basic servo control code on ESP32 for head and wing movements, ensuring correct PWM signals and range of motion",
+          "partIds": [
+            "esp32_microcontroller",
+            "servo_motor_head",
+            "servo_motor_wing_left_inner",
+            "servo_motor_wing_left_outer",
+            "servo_motor_wing_right_inner",
+            "servo_motor_wing_right_outer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assemble",
+      "subSteps": [
+        {
+          "id": "assemble_1",
+          "title": "Mount the Raspberry Pi 5 assembly and ESP32 assembly into the lower body shell",
+          "partIds": [
+            "rp_5_mount",
+            "esp32_mount",
+            "lower_body_shell",
+            "raspberry_pi_5",
+            "esp32_microcontroller"
+          ]
+        },
+        {
+          "id": "assemble_2",
+          "title": "Mount the battery tray, TP4056 module, voltage regulator module, audio amplifier, and power switch assemblies into the lower body shell, connecting the battery door",
+          "partIds": [
+            "battery_18650_tray",
+            "tp4056_mount",
+            "voltage_regulator_mount",
+            "audio_amplifier_mount",
+            "power_switch_mount",
+            "lower_body_shell",
+            "battery_door",
+            "tp4056_charging_module",
+            "buck_boost_converter",
+            "audio_amplifier_module",
+            "power_slide_switch"
+          ]
+        },
+        {
+          "id": "assemble_3",
+          "title": "Assemble the head by joining the left and right halves, securing eye LED, camera, microphone, and head servo mounts",
+          "partIds": [
+            "head_left_half",
+            "head_right_half",
+            "led_eye_left_mount",
+            "led_eye_right_mount",
+            "camera_module_mount",
+            "microphone_mount",
+            "head_servo_mount",
+            "m3_pan_head_screws"
+          ]
+        },
+        {
+          "id": "assemble_4",
+          "title": "Mount the PIR sensor, cooling fan, and WiFi antenna assemblies into the upper body shell",
+          "partIds": [
+            "pir_sensor_mount",
+            "cooling_fan_duct",
+            "wifi_antenna_mount",
+            "upper_body_shell"
+          ]
+        },
+        {
+          "id": "assemble_5",
+          "title": "Attach the head assembly to the upper body shell, ensuring proper routing of camera and servo cables",
+          "partIds": [
+            "head_left_half",
+            "head_right_half",
+            "upper_body_shell",
+            "servo_motor_head",
+            "m3_pan_head_screws"
+          ]
+        },
+        {
+          "id": "assemble_6",
+          "title": "Assemble the left and right wings by mounting the inner and outer servo mechanisms to the wing parts, then attach the complete wings to the upper body shell",
+          "partIds": [
+            "left_wing",
+            "right_wing",
+            "left_wing_inner_servo_mount",
+            "left_wing_outer_servo_mount",
+            "right_wing_inner_servo_mount",
+            "right_wing_outer_servo_mount",
+            "servo_motor_wing_left_inner",
+            "servo_motor_wing_left_outer",
+            "servo_motor_wing_right_inner",
+            "servo_motor_wing_right_outer",
+            "upper_body_shell",
+            "m3_pan_head_screws"
+          ]
+        },
+        {
+          "id": "assemble_7",
+          "title": "Secure the tail section to the upper body shell",
+          "partIds": [
+            "tail_section",
+            "upper_body_shell",
+            "m3_pan_head_screws"
+          ]
+        },
+        {
+          "id": "assemble_8",
+          "title": "Join the upper and lower body shells, route and secure all internal wiring, and finally attach the base and legs assembly",
+          "partIds": [
+            "upper_body_shell",
+            "lower_body_shell",
+            "base_and_legs",
+            "m3_pan_head_screws"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectDescription": "The 45cm 3D-printed Aegis Eagle is an intelligent surveillance robot disguised as a bald eagle. Powered by a Raspberry Pi 5 and ESP32, it uses a camera, PIR sensor, and speaker for motion detection, face recognition, live streaming, and issuing warning announcements, with optional head and wing movement.",
+  "imagePromptSnapshot": {
+    "tags": [
+      "Realistic bald eagle appearance",
+      "Intelligent surveillance system",
+      "3D printed PLA/PETG",
+      "Hidden electronics design",
+      "Hollow body for components",
+      "45 cm overall height"
+    ],
+    "description": "Project idea: Act as an expert robotics engineer, mechanical designer, electronics engineer, and AI developer.\n\nI want to build a full-scale \"Eagle Security Robot\" inspired by a realistic Bald Eagle. The robot should function as an intelligent surveillance and security system while maintaining the appearance of a real eagle.\n\nPROJECT NAME:\nAegis Eagle – AI Security Robot\n\n=====================\nGENERAL SPECIFICATIONS\n=====================\n\nOverall height: 45 cm\nBody length: 25 cm\nWingspan: 60 cm\n3D printed body using PLA or PETG.\nThe entire body should be hollow and designed to house electronics.\n\n=====================\n3D MODEL REQUIREMENTS\n=====================\n\nDesign the robot in separate printable parts:\n\n1. Head (Left and Right halves)\n2. Upper Body Shell\n3. Lower Body Shell\n4. Left Wing\n5. Right Wing\n6. Tail Section\n7. Base and Legs\n8. Battery Door\n9. Electronics Mounting Brackets\n\nWall thickness:\n3–4 mm.\n\nAdd:\n- Screw holes\n- Wire channels\n- Ventilation holes\n- Mounting points\n- Removable access panels\n\n=====================\nINTERNAL COMPONENTS\n=====================\n\nInclude compartments for:\n\n1. Raspberry Pi 5\n2. ESP32\n3. Raspberry Pi Camera Module\n4. PIR Motion Sensor\n5. Microphone\n6. Speaker\n7. LED Eagle Eyes\n8. Two 18650 batteries\n9. TP4056 charging module\n10. Voltage regulator\n11. Cooling fan\n12. Power switch\n13. WiFi antenna\n\n=====================\nINTERNAL DIMENSIONS\n=====================\n\nMain electronics compartment:\n\nLength: 18 cm\nWidth: 11 cm\nHeight: 11 cm\n\nBattery compartment:\n\nLength: 8 cm\nWidth: 5 cm\nHeight: 3 cm\n\nHead compartment:\n\nCamera mount\nLED mount\nMicrophone mount\n\nWing compartments:\n\nSpace for optional servo motors.\n\n=====================\nROBOT FEATURES\n=====================\n\nThe eagle robot should be capable of:\n\n- Motion detection\n- Human detection\n- Face recognition\n- Live video streaming\n- Mobile alerts\n- Recording video\n- Warning voice announcements\n- Night vision LEDs\n- Head movement\n- Optional wing movement\n\n=====================\nAI FEATURES\n=====================\n\nUse:\n- Python\n- OpenCV\n- TensorFlow Lite\n- Flask Web Server\n- Mobile App Dashboard\n\nThe robot should:\n\n1. Detect intruders.\n2. Send notifications.\n3. Save recordings.\n4. Stream camera feed.\n5. Play warning messages.\n\n=====================\nBLUEPRINT REQUIREMENTS\n=====================\n\nGenerate:\n\n1. Orthographic views\n   - Front\n   - Side\n   - Top\n   - Bottom\n   - Exploded view\n\n2. Internal component layout.\n\n3. Electronics wiring diagram.\n\n4. Mechanical assembly diagram.\n\n5. Dimensions of every component.\n\n6. Bill of materials.\n\n7. Estimated weight.\n\n8. Estimated battery life.\n\n9. STL-ready part breakdown.\n\n10. Step-by-step assembly instructions.\n\n=====================\nDESIGN STYLE\n=====================\n\nCreate a realistic bald eagle appearance with hidden electronics.\n\nThe robot should look like a decorative eagle statue during the day and become an intelligent security robot at night.\n\nGenerate engineering drawings and a complete manufacturing blueprint suitable for 3D printing and prototyping.\n\nDesign notes: Realistic bald eagle appearance, Intelligent surveillance system, 3D printed PLA/PETG, Hidden electronics design, Hollow body for components, 45 cm overall height\n\nElectrical components (current): 2x mcu: Main AI Controller, Secondary Control MCU; 3x sensor: Main Vision Camera, Body Motion Detector, Audio Input Mic; 9x actuator: Warning Announcement Speaker, Right Eye LED, Left Eye LED, Electronics Cooling Fan +5 more; 4x power: Main Power Cell 1, Main Power Cell 2, Battery Charging Module, Voltage Regulator Module; 3x module: Main Power Switch, External WiFi Antenna, Speaker Amplifier\n\nMechanical/structural parts (current): 29x 3d_printed: Head Left Half, Head Right Half, Upper Body Shell, Lower Body Shell +25 more; 2x misc: M3 Brass Heat-Set Inserts, M3 Pan Head Screws; 5x mechanism: Head Movement Servo, Left Wing Inner Joint Servo, Right Wing Inner Joint Servo, Left Wing Outer Joint Servo +1 more\n\nAssembly: Head Left Half → Head Right Half (M3 screws with heat-set inserts); Head Left Half → Left Eye LED Mount (snap fit or M3 screws); Head Right Half → Right Eye LED Mount (snap fit or M3 screws); Upper Body Shell → Lower Body Shell (M3 screws with heat-set inserts); Upper Body Shell → Head Left Half (M3 screws with heat-set inserts (via head servo mechanism)); Upper Body Shell → Head Right Half (M3 screws with heat-set inserts (via head servo mechanism)); Upper Body Shell → Left Wing (M3 screws with heat-set inserts (via wing servo mechanisms)); Upper Body Shell → Right Wing (M3 screws with heat-set inserts (via wing servo mechanisms)); Upper Body Shell → Tail Section (M3 screws with heat-set inserts); Lower Body Shell → Base and Legs (M3 screws with heat-set inserts); Lower Body Shell → Battery Compartment Door (Hinged with M3 screws or snap fit); Raspberry Pi 5 Mount → Lower Body Shell (M3 screws with heat-set inserts); ESP32 Mount → Lower Body Shell (M3 screws with heat-set inserts); RPi Camera Module Mount → Head Left Half (M3 screws); PIR Sensor Mount → Upper Body Shell (M3 screws) (+46 more connections)"
+  },
+  "instructionPreamble": {
+    "tools": [
+      "3D printer (PETG and PLA capable)",
+      "Soldering iron with fine tip",
+      "Solder",
+      "Wire strippers",
+      "Small Phillips head screwdriver set",
+      "M3 hex key",
+      "Multimeter",
+      "Hot glue gun (optional, for securing wires)",
+      "Deburring tool (for 3D prints)",
+      "Pliers/Cutters (for support removal)"
+    ],
+    "assumptions": [
+      "Basic soldering experience",
+      "Familiarity with 3D printing and post-processing",
+      "Understanding of basic electronics wiring and safety",
+      "Access to a computer with Raspberry Pi OS/Linux environment for software development",
+      "Arduino IDE or PlatformIO installed for ESP32 programming",
+      "Appropriate small gauge wiring for electrical connections",
+      "Knowledge of GPIO pinouts for Raspberry Pi 5 and ESP32"
+    ]
+  },
+  "electricalConnections": [
+    {
+      "type": "power",
+      "label": "Series Connection",
+      "source": "battery_18650_1",
+      "target": "battery_18650_2",
+      "current": "2A",
+      "voltage": "3.7V"
+    },
+    {
+      "type": "power",
+      "label": "Battery Pack (B-) to Charger",
+      "source": "battery_18650_1",
+      "target": "tp4056_charging_module",
+      "current": "2A",
+      "voltage": "3.7V"
+    },
+    {
+      "type": "power",
+      "label": "Battery Pack (B+) to Charger",
+      "source": "battery_18650_2",
+      "target": "tp4056_charging_module",
+      "current": "2A",
+      "voltage": "3.7V"
+    },
+    {
+      "type": "power",
+      "label": "Battery Output to Switch (OUT+)",
+      "source": "tp4056_charging_module",
+      "target": "power_slide_switch",
+      "current": "2A",
+      "voltage": "7.4V"
+    },
+    {
+      "type": "power",
+      "label": "Switched Power to Buck-Boost (IN+)",
+      "source": "power_slide_switch",
+      "target": "buck_boost_converter",
+      "current": "2A",
+      "voltage": "7.4V"
+    },
+    {
+      "type": "power",
+      "label": "GND to Buck-Boost (IN-)",
+      "source": "tp4056_charging_module",
+      "target": "buck_boost_converter",
+      "current": "2A",
+      "voltage": "7.4V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for RPi5",
+      "source": "buck_boost_converter",
+      "target": "raspberry_pi_5",
+      "current": "3A",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for ESP32",
+      "source": "buck_boost_converter",
+      "target": "esp32_microcontroller",
+      "current": "500mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for PIR",
+      "source": "buck_boost_converter",
+      "target": "pir_motion_sensor",
+      "current": "20mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Mic",
+      "source": "buck_boost_converter",
+      "target": "microphone",
+      "current": "5mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Fan",
+      "source": "buck_boost_converter",
+      "target": "cooling_fan",
+      "current": "150mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Audio Amp",
+      "source": "buck_boost_converter",
+      "target": "audio_amplifier_module",
+      "current": "500mA",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Head Servo",
+      "source": "buck_boost_converter",
+      "target": "servo_motor_head",
+      "current": "1A",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Wing Servo",
+      "source": "buck_boost_converter",
+      "target": "servo_motor_wing_left_inner",
+      "current": "1A",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Wing Servo",
+      "source": "buck_boost_converter",
+      "target": "servo_motor_wing_left_outer",
+      "current": "1A",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Wing Servo",
+      "source": "buck_boost_converter",
+      "target": "servo_motor_wing_right_inner",
+      "current": "1A",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "label": "5V Power for Wing Servo",
+      "source": "buck_boost_converter",
+      "target": "servo_motor_wing_right_outer",
+      "current": "1A",
+      "voltage": "5V"
+    },
+    {
+      "type": "data",
+      "label": "Camera Data",
+      "source": "raspberry_pi_5",
+      "target": "raspberry_pi_camera_module_3",
+      "protocol": "dsi",
+      "sourcePin": "MIPI CSI-2",
+      "targetPin": "MIPI CSI-2"
+    },
+    {
+      "type": "data",
+      "label": "RPi TX to ESP32 RX",
+      "source": "raspberry_pi_5",
+      "target": "esp32_microcontroller",
+      "protocol": "uart",
+      "sourcePin": "GPIO 14 (TX)",
+      "targetPin": "GPIO 16 (RX)"
+    },
+    {
+      "type": "data",
+      "label": "ESP32 TX to RPi RX",
+      "source": "esp32_microcontroller",
+      "target": "raspberry_pi_5",
+      "protocol": "uart",
+      "sourcePin": "GPIO 17 (TX)",
+      "targetPin": "GPIO 15 (RX)"
+    },
+    {
+      "type": "data",
+      "label": "Fan Control",
+      "source": "raspberry_pi_5",
+      "target": "cooling_fan",
+      "protocol": "gpio",
+      "sourcePin": "GPIO 12 (PWM)",
+      "targetPin": "PWM"
+    },
+    {
+      "type": "data",
+      "label": "PIR Signal",
+      "source": "esp32_microcontroller",
+      "target": "pir_motion_sensor",
+      "protocol": "gpio",
+      "sourcePin": "GPIO 23",
+      "targetPin": "OUT"
+    },
+    {
+      "type": "data",
+      "label": "Mic Audio Input",
+      "source": "esp32_microcontroller",
+      "target": "microphone",
+      "protocol": "analog",
+      "sourcePin": "ADC1_CH0 (GPIO 36)",
+      "targetPin": "OUT"
+    },
+    {
+      "type": "data",
+      "label": "Right Eye LED Control",
+      "source": "esp32_microcontroller",
+      "target": "led_eye_right",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 26",
+      "targetPin": "Anode"
+    },
+    {
+      "type": "data",
+      "label": "Left Eye LED Control",
+      "source": "esp32_microcontroller",
+      "target": "led_eye_left",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 25",
+      "targetPin": "Anode"
+    },
+    {
+      "type": "data",
+      "label": "Head Servo Control",
+      "source": "esp32_microcontroller",
+      "target": "servo_motor_head",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 13",
+      "targetPin": "PWM"
+    },
+    {
+      "type": "data",
+      "label": "Left Wing Inner Servo Control",
+      "source": "esp32_microcontroller",
+      "target": "servo_motor_wing_left_inner",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 14",
+      "targetPin": "PWM"
+    },
+    {
+      "type": "data",
+      "label": "Left Wing Outer Servo Control",
+      "source": "esp32_microcontroller",
+      "target": "servo_motor_wing_left_outer",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 27",
+      "targetPin": "PWM"
+    },
+    {
+      "type": "data",
+      "label": "Right Wing Inner Servo Control",
+      "source": "esp32_microcontroller",
+      "target": "servo_motor_wing_right_inner",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 32",
+      "targetPin": "PWM"
+    },
+    {
+      "type": "data",
+      "label": "Right Wing Outer Servo Control",
+      "source": "esp32_microcontroller",
+      "target": "servo_motor_wing_right_outer",
+      "protocol": "pwm",
+      "sourcePin": "GPIO 33",
+      "targetPin": "PWM"
+    },
+    {
+      "type": "data",
+      "label": "Audio Out to Amplifier",
+      "source": "raspberry_pi_5",
+      "target": "audio_amplifier_module",
+      "protocol": "i2s",
+      "sourcePin": "GPIO 18 (BCLK), GPIO 19 (LRCK), GPIO 20 (DOUT)",
+      "targetPin": "Audio In L/R"
+    },
+    {
+      "type": "data",
+      "label": "Amplified Audio to Speaker (+)",
+      "source": "audio_amplifier_module",
+      "target": "speaker",
+      "protocol": "analog",
+      "sourcePin": "SPK Out L",
+      "targetPin": "SPK+"
+    },
+    {
+      "type": "data",
+      "label": "Amplified Audio to Speaker (-)",
+      "source": "audio_amplifier_module",
+      "target": "speaker",
+      "protocol": "analog",
+      "sourcePin": "SPK Out R",
+      "targetPin": "SPK-"
+    }
+  ],
+  "mechanicalConnections": [
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "head_left_half",
+      "target": "head_right_half"
+    },
+    {
+      "label": "snap fit or M3 screws",
+      "source": "head_left_half",
+      "target": "led_eye_left_mount"
+    },
+    {
+      "label": "snap fit or M3 screws",
+      "source": "head_right_half",
+      "target": "led_eye_right_mount"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "upper_body_shell",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws with heat-set inserts (via head servo mechanism)",
+      "source": "upper_body_shell",
+      "target": "head_left_half"
+    },
+    {
+      "label": "M3 screws with heat-set inserts (via head servo mechanism)",
+      "source": "upper_body_shell",
+      "target": "head_right_half"
+    },
+    {
+      "label": "M3 screws with heat-set inserts (via wing servo mechanisms)",
+      "source": "upper_body_shell",
+      "target": "left_wing"
+    },
+    {
+      "label": "M3 screws with heat-set inserts (via wing servo mechanisms)",
+      "source": "upper_body_shell",
+      "target": "right_wing"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "upper_body_shell",
+      "target": "tail_section"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "lower_body_shell",
+      "target": "base_and_legs"
+    },
+    {
+      "label": "Hinged with M3 screws or snap fit",
+      "source": "lower_body_shell",
+      "target": "battery_door"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "rp_5_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "esp32_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "camera_module_mount",
+      "target": "head_left_half"
+    },
+    {
+      "label": "M3 screws",
+      "source": "pir_sensor_mount",
+      "target": "upper_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "microphone_mount",
+      "target": "head_left_half"
+    },
+    {
+      "label": "M3 screws",
+      "source": "speaker_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "battery_18650_tray",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "tp4056_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "voltage_regulator_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "cooling_fan_duct",
+      "target": "upper_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "power_switch_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "wifi_antenna_mount",
+      "target": "upper_body_shell"
+    },
+    {
+      "label": "M3 screws",
+      "source": "audio_amplifier_mount",
+      "target": "lower_body_shell"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "head_servo_mount",
+      "target": "upper_body_shell"
+    },
+    {
+      "label": "servo mounting screws",
+      "source": "head_servo_mount",
+      "target": "micro_servo_mg90s_head"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "left_wing_inner_servo_mount",
+      "target": "upper_body_shell"
+    },
+    {
+      "label": "servo mounting screws",
+      "source": "left_wing_inner_servo_mount",
+      "target": "mini_servo_mg996r_wing_li"
+    },
+    {
+      "label": "M3 screws (to wing base)",
+      "source": "left_wing_inner_servo_mount",
+      "target": "left_wing"
+    },
+    {
+      "label": "M3 screws with heat-set inserts (to wing)",
+      "source": "left_wing_outer_servo_mount",
+      "target": "left_wing"
+    },
+    {
+      "label": "servo mounting screws",
+      "source": "left_wing_outer_servo_mount",
+      "target": "micro_servo_mg90s_wing_lo"
+    },
+    {
+      "label": "M3 screws with heat-set inserts",
+      "source": "right_wing_inner_servo_mount",
+      "target": "upper_body_shell"
+    },
+    {
+      "label": "servo mounting screws",
+      "source": "right_wing_inner_servo_mount",
+      "target": "mini_servo_mg996r_wing_ri"
+    },
+    {
+      "label": "M3 screws (to wing base)",
+      "source": "right_wing_inner_servo_mount",
+      "target": "right_wing"
+    },
+    {
+      "label": "M3 screws with heat-set inserts (to wing)",
+      "source": "right_wing_outer_servo_mount",
+      "target": "right_wing"
+    },
+    {
+      "label": "servo mounting screws",
+      "source": "right_wing_outer_servo_mount",
+      "target": "micro_servo_mg90s_wing_ro"
+    },
+    {
+      "label": "mount",
+      "source": "rp_5_mount",
+      "target": "raspberry_pi_5"
+    },
+    {
+      "label": "mount",
+      "source": "esp32_mount",
+      "target": "esp32_microcontroller"
+    },
+    {
+      "label": "mount",
+      "source": "camera_module_mount",
+      "target": "raspberry_pi_camera_module_3"
+    },
+    {
+      "label": "mount",
+      "source": "pir_sensor_mount",
+      "target": "pir_motion_sensor"
+    },
+    {
+      "label": "mount",
+      "source": "microphone_mount",
+      "target": "microphone"
+    },
+    {
+      "label": "mount",
+      "source": "speaker_mount",
+      "target": "speaker"
+    },
+    {
+      "label": "mount",
+      "source": "led_eye_right_mount",
+      "target": "led_eye_right"
+    },
+    {
+      "label": "mount",
+      "source": "led_eye_left_mount",
+      "target": "led_eye_left"
+    },
+    {
+      "label": "mount",
+      "source": "battery_18650_tray",
+      "target": "battery_18650_1"
+    },
+    {
+      "label": "mount",
+      "source": "tp4056_mount",
+      "target": "tp4056_charging_module"
+    },
+    {
+      "label": "mount",
+      "source": "voltage_regulator_mount",
+      "target": "buck_boost_converter"
+    },
+    {
+      "label": "mount",
+      "source": "cooling_fan_duct",
+      "target": "cooling_fan"
+    },
+    {
+      "label": "mount",
+      "source": "power_switch_mount",
+      "target": "power_slide_switch"
+    },
+    {
+      "label": "mount",
+      "source": "wifi_antenna_mount",
+      "target": "wifi_antenna"
+    },
+    {
+      "label": "mount",
+      "source": "audio_amplifier_mount",
+      "target": "audio_amplifier_module"
+    },
+    {
+      "label": "mount",
+      "source": "head_servo_mount",
+      "target": "servo_motor_head"
+    },
+    {
+      "label": "mount",
+      "source": "left_wing_inner_servo_mount",
+      "target": "servo_motor_wing_left_inner"
+    },
+    {
+      "label": "mount",
+      "source": "left_wing_outer_servo_mount",
+      "target": "servo_motor_wing_left_outer"
+    },
+    {
+      "label": "mount",
+      "source": "right_wing_inner_servo_mount",
+      "target": "servo_motor_wing_right_inner"
+    },
+    {
+      "label": "mount",
+      "source": "right_wing_outer_servo_mount",
+      "target": "servo_motor_wing_right_outer"
+    },
+    {
+      "label": "mount",
+      "source": "micro_servo_mg90s_head",
+      "target": "servo_motor_head"
+    },
+    {
+      "label": "mount",
+      "source": "mini_servo_mg996r_wing_li",
+      "target": "servo_motor_wing_left_inner"
+    },
+    {
+      "label": "mount",
+      "source": "mini_servo_mg996r_wing_ri",
+      "target": "servo_motor_wing_right_inner"
+    },
+    {
+      "label": "mount",
+      "source": "micro_servo_mg90s_wing_lo",
+      "target": "servo_motor_wing_left_outer"
+    },
+    {
+      "label": "mount",
+      "source": "micro_servo_mg90s_wing_ro",
+      "target": "servo_motor_wing_right_outer"
+    }
+  ],
+  "projectId": "c14098b3-378b-48d7-bea9-a5439f20c2cf"
+}

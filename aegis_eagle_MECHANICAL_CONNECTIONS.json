@@ -1,0 +1,307 @@
+[
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "head_left_half",
+    "target": "head_right_half"
+  },
+  {
+    "label": "snap fit or M3 screws",
+    "source": "head_left_half",
+    "target": "led_eye_left_mount"
+  },
+  {
+    "label": "snap fit or M3 screws",
+    "source": "head_right_half",
+    "target": "led_eye_right_mount"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "upper_body_shell",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws with heat-set inserts (via head servo mechanism)",
+    "source": "upper_body_shell",
+    "target": "head_left_half"
+  },
+  {
+    "label": "M3 screws with heat-set inserts (via head servo mechanism)",
+    "source": "upper_body_shell",
+    "target": "head_right_half"
+  },
+  {
+    "label": "M3 screws with heat-set inserts (via wing servo mechanisms)",
+    "source": "upper_body_shell",
+    "target": "left_wing"
+  },
+  {
+    "label": "M3 screws with heat-set inserts (via wing servo mechanisms)",
+    "source": "upper_body_shell",
+    "target": "right_wing"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "upper_body_shell",
+    "target": "tail_section"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "lower_body_shell",
+    "target": "base_and_legs"
+  },
+  {
+    "label": "Hinged with M3 screws or snap fit",
+    "source": "lower_body_shell",
+    "target": "battery_door"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "rp_5_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "esp32_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "camera_module_mount",
+    "target": "head_left_half"
+  },
+  {
+    "label": "M3 screws",
+    "source": "pir_sensor_mount",
+    "target": "upper_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "microphone_mount",
+    "target": "head_left_half"
+  },
+  {
+    "label": "M3 screws",
+    "source": "speaker_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "battery_18650_tray",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "tp4056_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "voltage_regulator_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "cooling_fan_duct",
+    "target": "upper_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "power_switch_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "wifi_antenna_mount",
+    "target": "upper_body_shell"
+  },
+  {
+    "label": "M3 screws",
+    "source": "audio_amplifier_mount",
+    "target": "lower_body_shell"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "head_servo_mount",
+    "target": "upper_body_shell"
+  },
+  {
+    "label": "servo mounting screws",
+    "source": "head_servo_mount",
+    "target": "micro_servo_mg90s_head"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "left_wing_inner_servo_mount",
+    "target": "upper_body_shell"
+  },
+  {
+    "label": "servo mounting screws",
+    "source": "left_wing_inner_servo_mount",
+    "target": "mini_servo_mg996r_wing_li"
+  },
+  {
+    "label": "M3 screws (to wing base)",
+    "source": "left_wing_inner_servo_mount",
+    "target": "left_wing"
+  },
+  {
+    "label": "M3 screws with heat-set inserts (to wing)",
+    "source": "left_wing_outer_servo_mount",
+    "target": "left_wing"
+  },
+  {
+    "label": "servo mounting screws",
+    "source": "left_wing_outer_servo_mount",
+    "target": "micro_servo_mg90s_wing_lo"
+  },
+  {
+    "label": "M3 screws with heat-set inserts",
+    "source": "right_wing_inner_servo_mount",
+    "target": "upper_body_shell"
+  },
+  {
+    "label": "servo mounting screws",
+    "source": "right_wing_inner_servo_mount",
+    "target": "mini_servo_mg996r_wing_ri"
+  },
+  {
+    "label": "M3 screws (to wing base)",
+    "source": "right_wing_inner_servo_mount",
+    "target": "right_wing"
+  },
+  {
+    "label": "M3 screws with heat-set inserts (to wing)",
+    "source": "right_wing_outer_servo_mount",
+    "target": "right_wing"
+  },
+  {
+    "label": "servo mounting screws",
+    "source": "right_wing_outer_servo_mount",
+    "target": "micro_servo_mg90s_wing_ro"
+  },
+  {
+    "label": "mount",
+    "source": "rp_5_mount",
+    "target": "raspberry_pi_5"
+  },
+  {
+    "label": "mount",
+    "source": "esp32_mount",
+    "target": "esp32_microcontroller"
+  },
+  {
+    "label": "mount",
+    "source": "camera_module_mount",
+    "target": "raspberry_pi_camera_module_3"
+  },
+  {
+    "label": "mount",
+    "source": "pir_sensor_mount",
+    "target": "pir_motion_sensor"
+  },
+  {
+    "label": "mount",
+    "source": "microphone_mount",
+    "target": "microphone"
+  },
+  {
+    "label": "mount",
+    "source": "speaker_mount",
+    "target": "speaker"
+  },
+  {
+    "label": "mount",
+    "source": "led_eye_right_mount",
+    "target": "led_eye_right"
+  },
+  {
+    "label": "mount",
+    "source": "led_eye_left_mount",
+    "target": "led_eye_left"
+  },
+  {
+    "label": "mount",
+    "source": "battery_18650_tray",
+    "target": "battery_18650_1"
+  },
+  {
+    "label": "mount",
+    "source": "tp4056_mount",
+    "target": "tp4056_charging_module"
+  },
+  {
+    "label": "mount",
+    "source": "voltage_regulator_mount",
+    "target": "buck_boost_converter"
+  },
+  {
+    "label": "mount",
+    "source": "cooling_fan_duct",
+    "target": "cooling_fan"
+  },
+  {
+    "label": "mount",
+    "source": "power_switch_mount",
+    "target": "power_slide_switch"
+  },
+  {
+    "label": "mount",
+    "source": "wifi_antenna_mount",
+    "target": "wifi_antenna"
+  },
+  {
+    "label": "mount",
+    "source": "audio_amplifier_mount",
+    "target": "audio_amplifier_module"
+  },
+  {
+    "label": "mount",
+    "source": "head_servo_mount",
+    "target": "servo_motor_head"
+  },
+  {
+    "label": "mount",
+    "source": "left_wing_inner_servo_mount",
+    "target": "servo_motor_wing_left_inner"
+  },
+  {
+    "label": "mount",
+    "source": "left_wing_outer_servo_mount",
+    "target": "servo_motor_wing_left_outer"
+  },
+  {
+    "label": "mount",
+    "source": "right_wing_inner_servo_mount",
+    "target": "servo_motor_wing_right_inner"
+  },
+  {
+    "label": "mount",
+    "source": "right_wing_outer_servo_mount",
+    "target": "servo_motor_wing_right_outer"
+  },
+  {
+    "label": "mount",
+    "source": "micro_servo_mg90s_head",
+    "target": "servo_motor_head"
+  },
+  {
+    "label": "mount",
+    "source": "mini_servo_mg996r_wing_li",
+    "target": "servo_motor_wing_left_inner"
+  },
+  {
+    "label": "mount",
+    "source": "mini_servo_mg996r_wing_ri",
+    "target": "servo_motor_wing_right_inner"
+  },
+  {
+    "label": "mount",
+    "source": "micro_servo_mg90s_wing_lo",
+    "target": "servo_motor_wing_left_outer"
+  },
+  {
+    "label": "mount",
+    "source": "micro_servo_mg90s_wing_ro",
+    "target": "servo_motor_wing_right_outer"
+  }
+]

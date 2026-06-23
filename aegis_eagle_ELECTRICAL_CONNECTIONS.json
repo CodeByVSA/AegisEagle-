@@ -1,0 +1,282 @@
+[
+  {
+    "type": "power",
+    "label": "Series Connection",
+    "source": "battery_18650_1",
+    "target": "battery_18650_2",
+    "current": "2A",
+    "voltage": "3.7V"
+  },
+  {
+    "type": "power",
+    "label": "Battery Pack (B-) to Charger",
+    "source": "battery_18650_1",
+    "target": "tp4056_charging_module",
+    "current": "2A",
+    "voltage": "3.7V"
+  },
+  {
+    "type": "power",
+    "label": "Battery Pack (B+) to Charger",
+    "source": "battery_18650_2",
+    "target": "tp4056_charging_module",
+    "current": "2A",
+    "voltage": "3.7V"
+  },
+  {
+    "type": "power",
+    "label": "Battery Output to Switch (OUT+)",
+    "source": "tp4056_charging_module",
+    "target": "power_slide_switch",
+    "current": "2A",
+    "voltage": "7.4V"
+  },
+  {
+    "type": "power",
+    "label": "Switched Power to Buck-Boost (IN+)",
+    "source": "power_slide_switch",
+    "target": "buck_boost_converter",
+    "current": "2A",
+    "voltage": "7.4V"
+  },
+  {
+    "type": "power",
+    "label": "GND to Buck-Boost (IN-)",
+    "source": "tp4056_charging_module",
+    "target": "buck_boost_converter",
+    "current": "2A",
+    "voltage": "7.4V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for RPi5",
+    "source": "buck_boost_converter",
+    "target": "raspberry_pi_5",
+    "current": "3A",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for ESP32",
+    "source": "buck_boost_converter",
+    "target": "esp32_microcontroller",
+    "current": "500mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for PIR",
+    "source": "buck_boost_converter",
+    "target": "pir_motion_sensor",
+    "current": "20mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Mic",
+    "source": "buck_boost_converter",
+    "target": "microphone",
+    "current": "5mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Fan",
+    "source": "buck_boost_converter",
+    "target": "cooling_fan",
+    "current": "150mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Audio Amp",
+    "source": "buck_boost_converter",
+    "target": "audio_amplifier_module",
+    "current": "500mA",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Head Servo",
+    "source": "buck_boost_converter",
+    "target": "servo_motor_head",
+    "current": "1A",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Wing Servo",
+    "source": "buck_boost_converter",
+    "target": "servo_motor_wing_left_inner",
+    "current": "1A",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Wing Servo",
+    "source": "buck_boost_converter",
+    "target": "servo_motor_wing_left_outer",
+    "current": "1A",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Wing Servo",
+    "source": "buck_boost_converter",
+    "target": "servo_motor_wing_right_inner",
+    "current": "1A",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "label": "5V Power for Wing Servo",
+    "source": "buck_boost_converter",
+    "target": "servo_motor_wing_right_outer",
+    "current": "1A",
+    "voltage": "5V"
+  },
+  {
+    "type": "data",
+    "label": "Camera Data",
+    "source": "raspberry_pi_5",
+    "target": "raspberry_pi_camera_module_3",
+    "protocol": "dsi",
+    "sourcePin": "MIPI CSI-2",
+    "targetPin": "MIPI CSI-2"
+  },
+  {
+    "type": "data",
+    "label": "RPi TX to ESP32 RX",
+    "source": "raspberry_pi_5",
+    "target": "esp32_microcontroller",
+    "protocol": "uart",
+    "sourcePin": "GPIO 14 (TX)",
+    "targetPin": "GPIO 16 (RX)"
+  },
+  {
+    "type": "data",
+    "label": "ESP32 TX to RPi RX",
+    "source": "esp32_microcontroller",
+    "target": "raspberry_pi_5",
+    "protocol": "uart",
+    "sourcePin": "GPIO 17 (TX)",
+    "targetPin": "GPIO 15 (RX)"
+  },
+  {
+    "type": "data",
+    "label": "Fan Control",
+    "source": "raspberry_pi_5",
+    "target": "cooling_fan",
+    "protocol": "gpio",
+    "sourcePin": "GPIO 12 (PWM)",
+    "targetPin": "PWM"
+  },
+  {
+    "type": "data",
+    "label": "PIR Signal",
+    "source": "esp32_microcontroller",
+    "target": "pir_motion_sensor",
+    "protocol": "gpio",
+    "sourcePin": "GPIO 23",
+    "targetPin": "OUT"
+  },
+  {
+    "type": "data",
+    "label": "Mic Audio Input",
+    "source": "esp32_microcontroller",
+    "target": "microphone",
+    "protocol": "analog",
+    "sourcePin": "ADC1_CH0 (GPIO 36)",
+    "targetPin": "OUT"
+  },
+  {
+    "type": "data",
+    "label": "Right Eye LED Control",
+    "source": "esp32_microcontroller",
+    "target": "led_eye_right",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 26",
+    "targetPin": "Anode"
+  },
+  {
+    "type": "data",
+    "label": "Left Eye LED Control",
+    "source": "esp32_microcontroller",
+    "target": "led_eye_left",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 25",
+    "targetPin": "Anode"
+  },
+  {
+    "type": "data",
+    "label": "Head Servo Control",
+    "source": "esp32_microcontroller",
+    "target": "servo_motor_head",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 13",
+    "targetPin": "PWM"
+  },
+  {
+    "type": "data",
+    "label": "Left Wing Inner Servo Control",
+    "source": "esp32_microcontroller",
+    "target": "servo_motor_wing_left_inner",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 14",
+    "targetPin": "PWM"
+  },
+  {
+    "type": "data",
+    "label": "Left Wing Outer Servo Control",
+    "source": "esp32_microcontroller",
+    "target": "servo_motor_wing_left_outer",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 27",
+    "targetPin": "PWM"
+  },
+  {
+    "type": "data",
+    "label": "Right Wing Inner Servo Control",
+    "source": "esp32_microcontroller",
+    "target": "servo_motor_wing_right_inner",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 32",
+    "targetPin": "PWM"
+  },
+  {
+    "type": "data",
+    "label": "Right Wing Outer Servo Control",
+    "source": "esp32_microcontroller",
+    "target": "servo_motor_wing_right_outer",
+    "protocol": "pwm",
+    "sourcePin": "GPIO 33",
+    "targetPin": "PWM"
+  },
+  {
+    "type": "data",
+    "label": "Audio Out to Amplifier",
+    "source": "raspberry_pi_5",
+    "target": "audio_amplifier_module",
+    "protocol": "i2s",
+    "sourcePin": "GPIO 18 (BCLK), GPIO 19 (LRCK), GPIO 20 (DOUT)",
+    "targetPin": "Audio In L/R"
+  },
+  {
+    "type": "data",
+    "label": "Amplified Audio to Speaker (+)",
+    "source": "audio_amplifier_module",
+    "target": "speaker",
+    "protocol": "analog",
+    "sourcePin": "SPK Out L",
+    "targetPin": "SPK+"
+  },
+  {
+    "type": "data",
+    "label": "Amplified Audio to Speaker (-)",
+    "source": "audio_amplifier_module",
+    "target": "speaker",
+    "protocol": "analog",
+    "sourcePin": "SPK Out R",
+    "targetPin": "SPK-"
+  }
+]
